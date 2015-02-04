@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailrLib", "MailrLib\MailrLib.csproj", "{75D56AF8-8F8B-4169-A751-EC191D21D7C6}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "MailrDoc", "MailrDoc\MailrDoc.shfbproj", "{AA3C7BA4-604B-4934-9B4F-4A7854BBF290}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B84DFB74-6B1C-4F15-80ED-E62C04E0039E} = {B84DFB74-6B1C-4F15-80ED-E62C04E0039E}
+		{75D56AF8-8F8B-4169-A751-EC191D21D7C6} = {75D56AF8-8F8B-4169-A751-EC191D21D7C6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailrExe", "MailrExe\MailrExe.csproj", "{B84DFB74-6B1C-4F15-80ED-E62C04E0039E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75D56AF8-8F8B-4169-A751-EC191D21D7C6} = {75D56AF8-8F8B-4169-A751-EC191D21D7C6}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75D56AF8-8F8B-4169-A751-EC191D21D7C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D56AF8-8F8B-4169-A751-EC191D21D7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D56AF8-8F8B-4169-A751-EC191D21D7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D56AF8-8F8B-4169-A751-EC191D21D7C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3C7BA4-604B-4934-9B4F-4A7854BBF290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3C7BA4-604B-4934-9B4F-4A7854BBF290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3C7BA4-604B-4934-9B4F-4A7854BBF290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B84DFB74-6B1C-4F15-80ED-E62C04E0039E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84DFB74-6B1C-4F15-80ED-E62C04E0039E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B84DFB74-6B1C-4F15-80ED-E62C04E0039E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B84DFB74-6B1C-4F15-80ED-E62C04E0039E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

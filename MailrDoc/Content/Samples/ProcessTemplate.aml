@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="6d19ffbe-02ed-4924-9006-2b8db4bebbba" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ 		<introduction>
+			<para>
+				This sample illustrates how to load an email message template 
+				from a localized file and perform data transformation
+				substituting text placeholder with the properties defined at run time.
+			</para>
+			<para>
+				This sample is based on the <token>PRODUCTNAMEEXE</token>
+				code base.
+			</para>
+		</introduction>
+
+		<section address="Main">
+			<title>Main program</title>
+			<content>
+				<para>
+					The code that loads and transforms a localized email template
+					is implemented in the <codeInline>ProcessTemplate</codeInline> method:
+				</para>
+				<code source="..\MailrExe\Program.cs" language="c#" region="ProcessTemplate method"/>
+				<para>
+					Notice that once the email template is loaded and transformed,
+					it is returned to the caller as a standard .NET Framework's
+					<codeEntityReference>T:System.Net.Mail.MailMessage</codeEntityReference>
+					object.
+				</para>
+			</content>
+		</section>
+
+    <relatedTopics>
+    </relatedTopics>
+  </developerSampleDocument>
+</topic>

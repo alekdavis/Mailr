@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="cdd2ef93-8840-4020-ae30-cec10469ebe8" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ 		<introduction>
+			<para>
+				This sample illustrates how to send an email message.
+				In this example, the email message is generated from a localized template,
+				as described in the <link xlink:href="6d19ffbe-02ed-4924-9006-2b8db4bebbba"/>
+				section, but at this point, it does not matter, 
+				since once the template is loaded and transformed,
+				it gets treated as a standard .NET Framework's
+					<codeEntityReference>T:System.Net.Mail.MailMessage</codeEntityReference>
+				object.
+			</para>
+			<para>
+				This sample is based on the <token>PRODUCTNAMEEXE</token>
+				code base.
+			</para>
+		</introduction>
+
+		<section address="Main">
+			<title>Main program</title>
+			<content>
+				<para>
+					The code that sends an email message
+					is implemented in the <codeInline>SendMessage</codeInline> method:
+				</para>
+				<code source="..\MailrExe\Program.cs" language="c#" region="SendMessage method"/>
+			</content>
+		</section>
+
+    <relatedTopics>
+    </relatedTopics>
+  </developerSampleDocument>
+</topic>

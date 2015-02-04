@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="51a561fc-a7c0-4251-88c3-7fb044ca464b" revisionNumber="1">
+	<developerSampleDocument
+		xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				This sample illustrates how to read 
+				<codeInline>name=value</codeInline> pairs
+				from a text file into a string-to-string dictionary object.
+			</para>
+			<para>
+				This sample is based on the <token>PRODUCTNAMEEXE</token>
+				code base.
+			</para>
+		</introduction>
+
+		<section address="Program">
+			<title>Main program</title>
+			<content>
+				<para>
+					The code that handles reads data from a text file and
+					converts it to a dictionary object is implemented in the
+					<codeInline>GetData</codeInline> method:
+				</para>
+				<code source="..\MailrExe\Program.cs" language="c#" region="GetData method"/>
+				
+				<para>
+					The contents of a data file may look like this:
+				</para>
+				<code source="..\MailrExe\Email\Data\Hello_en-us.txt" language="c#" title="Data file (English)"/>
+				<code source="..\MailrExe\Email\Data\Hello_es.txt" language="c#" title="Data file (Spanish)"/>
+				<code source="..\MailrExe\Email\Data\Hello_ru.txt" language="c#" title="Data file (Russian)"/>
+			</content>
+		</section>
+		<relatedTopics>
+		</relatedTopics>
+	</developerSampleDocument>
+</topic>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="fbc07002-a86a-414b-aab7-381641c6fbe8" revisionNumber="1">
+	<developerConceptualDocument
+		xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+		<introduction>
+			<para>
+				You may find the following resources helpful:
+			</para>
+		</introduction>
+
+		<section address="Sandcastle">
+			<title>Sandcastle tutorials</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>A Coder’s Guide to Writing API Documentation</linkText>
+								<linkUri>http://msdn.microsoft.com/en-us/magazine/gg309172.aspx</linkUri>
+							</externalLink>
+							by Peter Gruenbaum (MSDN Magazine, November 2010 issue)
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Taming Sandcastle: A .NET Programmer's Guide to Documenting Your Code</linkText>
+								<linkUri>https://www.simple-talk.com/dotnet/.net-tools/taming-sandcastle-a-.net-programmers-guide-to-documenting-your-code/</linkUri>
+							</externalLink>
+							by Michael Sorens (Simple Talk, 13 September 2010, Red Gate Software)
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Sandcastle Conceptual Help: Quick Start</linkText>
+								<linkUri>http://www.codeproject.com/Articles/22539/Sandcastle-Conceptual-Help-Quick-Start</linkUri>
+							</externalLink>
+							by Paul Selormey (Code Project, 30 December 2007)
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<section address="References">
+			<title>Sandcastle, MAML, XML comments (references)</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Sandcastle XML Comment Guide</linkText>
+								<linkUri>http://www.ewoodruff.us/xmlcommentsguide/html/4268757F-CE8D-4E6D-8502-4F7F2E22DDA3.htm</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Sandcastle MAML Guide</linkText>
+								<linkUri>http://www.ewoodruff.us/mamlguide/html/303c996a-2911-4c08-b492-6496c82b3edb.htm</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>XML Documentation Comments (C# Programming Guide)</linkText>
+								<linkUri>https://msdn.microsoft.com/en-us/library/b2s063f7(v=vs.110).aspx</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<section address="Help">
+			<title>Sandcastle help and support</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Sandcastle Help File Builder discussion forum</linkText>
+								<linkUri>https://shfb.codeplex.com/discussions</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Sandcastle Help File builder issues</linkText>
+								<linkUri>https://shfb.codeplex.com/workitem/list/basic</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<section address="Email">
+			<title>HTML email info and tools</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>CSS inliner</linkText>
+								<linkUri>http://inliner.cm/</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Guide to CSS support in email clients</linkText>
+								<linkUri>https://www.campaignmonitor.com/css/</linkUri>
+							</externalLink>
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Sending HTML-based email from .NET applications</linkText>
+								<linkUri>http://alekdavis.blogspot.com/2009/08/sending-html-based-email-from-net.html</linkUri>
+							</externalLink>
+							(see references at the end of the post)
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

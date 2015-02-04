@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="b2deda88-8a75-4437-b6ec-dc9dc306aa26" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ 		<introduction>
+			<para>
+				The following examples show templates used during the design phase.
+				Notice that a design version of the template should not be used at run time.
+				The template must first be converted to use inline styles and
+				other modifications as described in the
+				<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" address="BuildFinalDefault"/>
+				section.
+			</para>
+			<para>
+				These template files are s used in the <token>PRODUCTNAMEEXE</token> project.
+			</para>
+			<para>
+				The styles used by the templates come from the <userInput>Basic</userInput>
+				template offered by 
+				<externalLink>
+					<linkText>ZURB University</linkText>
+					<linkUri>http://zurb.com/playground/responsive-email-templates</linkUri>
+				</externalLink>.
+			</para>
+		</introduction>
+
+		<section address="DesignTimeTemplate">
+			<title>Design-time templates</title>
+			<content>
+				<para>
+					The following examples show the localized versions of the email template used during the design phase:
+				</para>
+				<code source="..\MailrExe\Email\Templates\Hello_en-us.Design.html" language="html" title="English"/>
+				<code source="..\MailrExe\Email\Templates\Hello_es.Design.html" language="html" title="Spanish"/>
+				<code source="..\MailrExe\Email\Templates\Hello_ru.Design.html" language="html" title="Russian"/>
+			</content>
+		</section>
+
+    <relatedTopics>
+			<link xlink:href="8150d6e5-21e9-4bad-95ea-9c0e0305d942"/>
+    </relatedTopics>
+  </developerSampleDocument>
+</topic>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="b7fe3bb9-1aac-482b-a4de-e3b69c82237a" revisionNumber="1">
+	<developerConceptualDocument
+		xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				<token>PRODUCTNAME</token> comes with two components:
+			</para>
+			<list class="bullet">
+				<listItem>
+					<para>
+						<link xlink:href="9ba844f4-869d-43df-8110-243b0bace57d"><token>PRODUCTNAMELIB</token></link>
+						 handles email template transformations.
+					</para>
+				</listItem>
+				<listItem>
+					<para>
+						<link xlink:href="702e11e9-9858-4173-950f-083888e33b06"><token>PRODUCTNAMEEXE</token></link>
+						 allows you to test email templates.
+					</para>
+				</listItem>
+			</list>
+		</introduction>
+
+		<relatedTopics>
+			<link xlink:href="702e11e9-9858-4173-950f-083888e33b06" />
+			<link xlink:href="9ba844f4-869d-43df-8110-243b0bace57d" />
+			<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

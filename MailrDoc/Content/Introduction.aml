@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="bd04bdc0-4762-47ae-b0f5-731eb14fa1c2" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>
+				This user's guide describes <token>PRODUCTNAME</token>, 
+				a simple .NET solution that makes it easier to build, send, and test 
+				localized email messages using external template files or text strings.
+			</para>
+		</introduction>
+
+		<section>
+			<title>Topics</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<legacyBold><link xlink:href="fb54bf06-341b-45a7-8d06-3dd5d7d62365">Overview</link></legacyBold> explains how 
+							<token>PRODUCTNAME</token> works.
+						</para>
+					</listItem>
+						
+					<listItem>
+						<para>
+							<legacyBold><codeEntityReference linkText="API reference">R:Project_Mailr</codeEntityReference></legacyBold>
+							describes the API and command-line tool. 
+						</para>
+					</listItem>
+					
+					<listItem>
+						<para>
+							<legacyBold><link xlink:href="fcbd5503-9bc9-441b-a12d-c2b501cd3db3">Code samples</link></legacyBold>
+							provides samples of application code and email templates. 
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="549876bc-c8dc-49e1-ad41-7b6fef060243" />
+			<link xlink:href="fbc07002-a86a-414b-aab7-381641c6fbe8" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

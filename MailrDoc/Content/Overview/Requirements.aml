@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="3d4dfec9-a4d8-4b9c-8b00-def41da5ff74" revisionNumber="1">
+	<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				To use <token>PRODUCTNAME</token>, you need to meet the following requirements:
+			</para>
+		</introduction>
+
+		<section>
+			<title>Framework</title>
+			<content>
+				<para>
+					Both <token>PRODUCTNAMELIB</token> and <token>PRODUCTNAMEEXE</token> require .NET Framework 4.5.
+				</para>
+			</content>
+			<sections>
+				<section address="Encoding">
+					<title>Encoding</title>
+					<content>
+						<para>
+							Localized email template files used by <token>PRODUCTNAME</token> must be encoded in 
+							<externalLink>
+								<linkText>UTF-8</linkText>
+								<linkUri>http://en.wikipedia.org/wiki/UTF-8</linkUri>
+							</externalLink>.
+						</para>
+					</content>
+				</section>
+				<section address="Projects">
+					<title>Projects</title>
+					<content>
+						<para>
+							<token>PRODUCTNAME</token> projects are built in Visual Studio 2013.
+						</para>
+					</content>
+				</section>
+			</sections>
+		</section>
+		<relatedTopics>
+			<link xlink:href="fb54bf06-341b-45a7-8d06-3dd5d7d62365" />
+			<link xlink:href="b7fe3bb9-1aac-482b-a4de-e3b69c82237a" />
+			<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

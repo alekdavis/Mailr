@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Original release.</releaseNotes>
+    <copyright>Copyright (C) 2015 Alek Davis</copyright>
+    <tags>html email template razor engine i18n library API transformations</tags>
+  </metadata>
+</package>

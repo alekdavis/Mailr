@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="8150d6e5-21e9-4bad-95ea-9c0e0305d942" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ 		<introduction>
+			<para>
+				This example demonstrates an email message template
+				used by an application at run time.
+				A run-time template should not be authored by hand;
+				normally, it is generated from a
+				<link xlink:href="b2deda88-8a75-4437-b6ec-dc9dc306aa26">design-time file</link>
+				that undergoes conversions and modifications described in the
+				<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" address="BuildFinalDefault"/>
+				section.  
+			</para>
+			<para>
+				This template file is used in the <token>PRODUCTNAMEEXE</token> project.
+				Due to the file size, only one localized version is included in this sample.
+			</para>
+			<para>
+				The styles used by this template come from the <userInput>Basic</userInput>
+				template offered by 
+				<externalLink>
+					<linkText>ZURB University</linkText>
+					<linkUri>http://zurb.com/playground/responsive-email-templates</linkUri>
+				</externalLink>.
+			</para>
+		</introduction>
+
+		<section address="WorkingTemplate">
+			<title>Run-time template</title>
+			<content>
+				<para>
+					The following example shows the <codeInline>us-en</codeInline> versions 
+					of a run-time email templates:
+				</para>
+				<code source="..\MailrExe\Email\Templates\Hello_en-us.html" language="html" title="English"/>
+			</content>
+		</section>
+
+    <relatedTopics>
+			<link xlink:href="b2deda88-8a75-4437-b6ec-dc9dc306aa26"/>
+    </relatedTopics>
+  </developerSampleDocument>
+</topic>

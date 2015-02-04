@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="702e11e9-9858-4173-950f-083888e33b06" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+				<token>PRODUCTNAMEEXE</token> is a console application that can be used to
+				test <token>PRODUCTNAMELIB</token>.
+				It is implemented as a single stand-alone executable file
+				<codeInline><token>FILENAMEEXE</token></codeInline>.
+				To view command-line options, run <codeInline><token>FILENAMEEXE</token></codeInline>
+				with the <codeInline>/help</codeInline> switch.
+			</para>
+			<para>
+				For additional information, see the
+				<codeEntityReference>N:Mailr.Client</codeEntityReference> namespace documentation
+				(the <codeEntityReference>T:Mailr.Client.Program</codeEntityReference> section
+				provides a general overview, while the 
+				<codeEntityReference>T:Mailr.Client.Options</codeEntityReference> describes supported
+				command-line options).
+				You can find examples of calls in the description of the 
+				<codeEntityReference>M:Mailr.Client.Program.Main(System.String[])</codeEntityReference>
+				method.
+			</para>
+    </introduction>
+
+    <section address="Dependencies">
+      <title>Dependencies</title>
+      <content>
+				<para>
+					In addition to the 
+					<link xlink:href="9ba844f4-869d-43df-8110-243b0bace57d#Dependencies">dependencies</link>
+					specified for <token>PRODUCTNAMELIB</token>,
+					<token>PRODUCTNAMEEXE</token> also relies on:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>C5</linkText>
+								<linkUri>https://www.nuget.org/packages/C5/</linkUri>
+							</externalLink>
+							is required by Plossum CommandLine component.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>ILMerge</linkText>
+								<linkUri>https://www.nuget.org/packages/ilmerge/</linkUri>
+							</externalLink>
+							merges all dependent assemblies into the executable.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>MSBuild ILMerge Task</linkText>
+								<linkUri>https://www.nuget.org/packages/MSBuild.ILMerge.Task</linkUri>
+							</externalLink>
+							integrates ILMerge into the project's build process.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Plossum CommandLine</linkText>
+								<linkUri>https://www.nuget.org/packages/Plossum.CommandLine/</linkUri>
+							</externalLink>
+							simplifies command line handling.
+						</para>
+					</listItem>
+				</list>
+
+				<alert>
+					<para>
+						To make <token>PRODUCTNAMEEXE</token> easier to use, 
+						its dependencies --
+						including the <token>PRODUCTNAMELIB</token> assembly --
+						are merged into the main executable.						
+					</para>
+				</alert>
+      </content>
+			</section>
+
+    <relatedTopics>
+			<link xlink:href="9ba844f4-869d-43df-8110-243b0bace57d" />
+			<codeEntityReference>N:Mailr.Client</codeEntityReference>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

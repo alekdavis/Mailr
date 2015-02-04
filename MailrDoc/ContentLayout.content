@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="bd04bdc0-4762-47ae-b0f5-731eb14fa1c2" visible="True" isDefault="true" title="Introduction">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="introduction" />
+      <HelpKeyword index="K" term="topics" />
+    </HelpKeywords>
+  </Topic>
+  <Topic id="fb54bf06-341b-45a7-8d06-3dd5d7d62365" visible="True" isExpanded="true" title="Overview">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="overview" />
+      <HelpKeyword index="K" term="" />
+      <HelpKeyword index="K" term="" />
+    </HelpKeywords>
+    <Topic id="b7fe3bb9-1aac-482b-a4de-e3b69c82237a" visible="True" isExpanded="true" title="Components">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="components" />
+        <HelpKeyword index="K" term="" />
+        <HelpKeyword index="K" term="" />
+        <HelpKeyword index="K" term="" />
+        <HelpKeyword index="K" term="" />
+      </HelpKeywords>
+      <Topic id="9ba844f4-869d-43df-8110-243b0bace57d" visible="True" title="Class library">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="library" />
+          <HelpKeyword index="K" term="class library" />
+          <HelpKeyword index="K" term="API" />
+          <HelpKeyword index="K" term="dependencies" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="702e11e9-9858-4173-950f-083888e33b06" visible="True" title="Client tool">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="client tool" />
+          <HelpKeyword index="K" term="command-line tool" />
+          <HelpKeyword index="K" term="executable" />
+          <HelpKeyword index="K" term="test" />
+          <HelpKeyword index="K" term="dependencies" />
+        </HelpKeywords>
+      </Topic>
+    </Topic>
+    <Topic id="3d4dfec9-a4d8-4b9c-8b00-def41da5ff74" visible="True">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="requirements" />
+        <HelpKeyword index="K" term=".NET Framework" />
+        <HelpKeyword index="K" term="encoding" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" visible="True" title="Walkthrough">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="walkthrough" />
+        <HelpKeyword index="K" term="example" />
+        <HelpKeyword index="K" term="" />
+      </HelpKeywords>
+    </Topic>
+  </Topic>
+  <Topic id="549876bc-c8dc-49e1-ad41-7b6fef060243" visible="True" isExpanded="true" title="Version history">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="version, history" />
+      <HelpKeyword index="K" term="release notes" />
+    </HelpKeywords>
+    <Topic id="1b006b2b-3833-4c57-9b67-8128b9765b74" visible="True" title="Version 1.0.0.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 1.0.0.0" />
+      </HelpKeywords>
+    </Topic>
+  </Topic>
+  <Topic id="fcbd5503-9bc9-441b-a12d-c2b501cd3db3" visible="True" isExpanded="true" apiParentMode="InsertBefore" title="Code samples">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="samples" />
+      <HelpKeyword index="K" term="examples" />
+      <HelpKeyword index="K" term="code samples" />
+      <HelpKeyword index="K" term="how to" />
+    </HelpKeywords>
+    <Topic id="d4f89739-6d1d-45f5-b5b6-fb47dd013951" visible="True" title="How to: Process command line">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="sample" />
+        <HelpKeyword index="K" term="code sample" />
+        <HelpKeyword index="K" term="how to, process command line" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="51a561fc-a7c0-4251-88c3-7fb044ca464b" visible="True" title="How to: Get data from a text file">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="code sample" />
+        <HelpKeyword index="K" term="sample" />
+        <HelpKeyword index="K" term="how to, get data from file" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="6d19ffbe-02ed-4924-9006-2b8db4bebbba" visible="True" title="How to: Process email template">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="sample" />
+        <HelpKeyword index="K" term="code sample" />
+        <HelpKeyword index="K" term="how to, load template" />
+        <HelpKeyword index="K" term="howto, transform template" />
+        <HelpKeyword index="K" term="" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="cdd2ef93-8840-4020-ae30-cec10469ebe8" visible="True" title="How to: Send email message">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="sample" />
+        <HelpKeyword index="K" term="code sample" />
+        <HelpKeyword index="K" term="how to, send email" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="a7b972ef-99f2-459b-bed0-74016adf0682" visible="True" title="How to: Complete sample">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="code sample" />
+        <HelpKeyword index="K" term="sample" />
+        <HelpKeyword index="K" term="code sample, full listing" />
+        <HelpKeyword index="K" term="code sample, complete" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="dbc0138a-0163-4be4-9421-c1fb5612094c" visible="True" isExpanded="true" title="Email templates">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="sample" />
+        <HelpKeyword index="K" term="example" />
+        <HelpKeyword index="K" term="email" />
+        <HelpKeyword index="K" term="template" />
+        <HelpKeyword index="K" term="HTML" />
+      </HelpKeywords>
+      <Topic id="b2deda88-8a75-4437-b6ec-dc9dc306aa26" visible="True" title="Design-time file">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="sample" />
+          <HelpKeyword index="K" term="example" />
+          <HelpKeyword index="K" term="email template" />
+          <HelpKeyword index="K" term="code" />
+          <HelpKeyword index="K" term="HTML" />
+        </HelpKeywords>
+      </Topic>
+      <Topic id="8150d6e5-21e9-4bad-95ea-9c0e0305d942" visible="True" title="Run-time file">
+        <HelpKeywords>
+          <HelpKeyword index="K" term="sample" />
+          <HelpKeyword index="K" term="example" />
+          <HelpKeyword index="K" term="email template" />
+          <HelpKeyword index="K" term="code" />
+          <HelpKeyword index="K" term="HTML" />
+        </HelpKeywords>
+      </Topic>
+    </Topic>
+  </Topic>
+  <Topic id="fbc07002-a86a-414b-aab7-381641c6fbe8" visible="True" isSelected="true" title="Resources">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="resources" />
+      <HelpKeyword index="K" term="references" />
+      <HelpKeyword index="K" term="tools" />
+      <HelpKeyword index="K" term="tutorials" />
+    </HelpKeywords>
+  </Topic>
+</Topics>

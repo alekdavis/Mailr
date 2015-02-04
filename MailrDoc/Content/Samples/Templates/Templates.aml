@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="dbc0138a-0163-4be4-9421-c1fb5612094c" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+				The following samples show examples of email template layouts.
+			</para>
+    </introduction>
+
+		<section address="TemplateSamples">
+			<title>Email template samples</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<link xlink:href="b2deda88-8a75-4437-b6ec-dc9dc306aa26"/> 
+							shows examples of localized HTML email template files used during the design phase.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="8150d6e5-21e9-4bad-95ea-9c0e0305d942"/> 
+							shows example of a final template file used by an application at run time.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+		
+    <relatedTopics>
+			<link xlink:href="fcbd5503-9bc9-441b-a12d-c2b501cd3db3"/>
+			<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc"/>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

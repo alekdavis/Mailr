@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d4f89739-6d1d-45f5-b5b6-fb47dd013951" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+    <introduction>
+      <para>
+				The following code illustrates to implement command line handling
+				and mapping of command line parameters to the program options.
+			</para>
+			<para>
+				This sample is based on the <token>PRODUCTNAMEEXE</token>
+				code base.
+			</para>
+    </introduction>
+
+    <requirements>
+			<content>
+				<para>This implementation relies on the 
+					<externalLink>
+						<linkText>Plossum CommandLine</linkText>
+						<linkUri>https://www.nuget.org/packages/Plossum.CommandLine/</linkUri>
+					</externalLink>
+					NuGet package.
+				</para>
+			</content>
+		</requirements>
+    <codeExample>
+			<description>
+				<content>
+					<para>
+						This example demonstrates the implementation of the
+						<codeEntityReference>T:Mailr.Client.Options</codeEntityReference>
+						class responsible for mapping command line parameters to program options:
+					</para>
+				</content>
+			</description>
+			<code source="..\MailrExe\Options.cs" language="c#"></code>
+		</codeExample>
+		
+		<codeExample>
+			<description>
+				<content>
+					<para>
+						This sample shows how to read command-line parameters
+						and convert them into program options using an 
+						<codeEntityReference>T:Mailr.Client.Options</codeEntityReference>
+						object
+						(the following code is implemented in the 
+						<codeEntityReference>T:Mailr.Client.Program</codeEntityReference>
+						class)
+					</para>
+				</content>
+			</description>
+			<code source="..\MailrExe\Program.cs" language="c#" region="Main method"></code>
+		</codeExample>			
+
+    <relatedTopics>
+			<link xlink:href="a7b972ef-99f2-459b-bed0-74016adf0682"/>
+    </relatedTopics>
+  </developerSampleDocument>
+</topic>

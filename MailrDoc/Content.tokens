@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="FILENAMEEXE">MailrCmd.exe</item>
+  <item id="FILENAMELIB">Mailr.dll</item>
+  <item id="PRODUCTNAME">Mailr.NET</item>
+  <item id="PRODUCTNAMEEXE">Mailr.NET Client Tool</item>
+  <item id="PRODUCTNAMELIB">Mailr.NET Class Library</item>
+</content>

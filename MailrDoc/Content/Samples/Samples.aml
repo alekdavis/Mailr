@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="fcbd5503-9bc9-441b-a12d-c2b501cd3db3" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				The following code samples illustrate how you can use the
+				<token>PRODUCTNAME</token> API.
+			</para>
+		</introduction>
+
+		<section address="HowToSamples">
+			<title>How-to samples</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<link xlink:href="d4f89739-6d1d-45f5-b5b6-fb47dd013951"/> 
+							explains how to process command line and set up program options.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="51a561fc-a7c0-4251-88c3-7fb044ca464b"/> 
+							shows how to read data used for template transformations 
+							from a text file.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="6d19ffbe-02ed-4924-9006-2b8db4bebbba"/> 
+							illustrates how to load a localized email template from 
+							a file and perform data transformations to generate
+							the email message body.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="cdd2ef93-8840-4020-ae30-cec10469ebe8"/> 
+							shows how to send en email message.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="6d19ffbe-02ed-4924-9006-2b8db4bebbba"/> 
+							provides the complete example illustrating how 
+							to read command line, set up program options, 
+							get data used for template transformations from a text file,
+							load a localized template from a file, transform it and 
+							send the resulting email notification to the specified recipient(s).
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+		<section address="EmailTemplateSamples">
+			<title>Email template samples</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<link xlink:href="dbc0138a-0163-4be4-9421-c1fb5612094c"/> 
+							demonstrates examples of localizes email template layouts.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+		
+    <relatedTopics>
+			<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc"/>
+			<link xlink:href="dbc0138a-0163-4be4-9421-c1fb5612094c"/>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

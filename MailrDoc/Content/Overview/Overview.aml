@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="fb54bf06-341b-45a7-8d06-3dd5d7d62365" revisionNumber="1">
+	<developerConceptualDocument
+		xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				<token>PRODUCTNAME</token> offers an API
+				and a client tool for building, sending, and testing
+				email messages generated from localized template files or text strings.
+			</para>
+		</introduction>
+
+		<section address="Benefits">
+			<title>Why use <token>PRODUCTNAME</token>?</title>
+			<content>
+				<para>
+					Consider <token>PRODUCTNAME</token> because it is:
+				</para>
+				<list class="bullet">
+					<listItem>
+						<para>
+							<legacyBold>Simple.</legacyBold> 
+							The <token>PRODUCTNAME</token> API consists of a single class
+							with a couple of methods.
+							It does not require changes to configuration settings or complex coding.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<legacyBold>Familiar.</legacyBold> 
+							The <token>PRODUCTNAME</token> API is derived from the ubiquitous 
+							<codeEntityReference>T:System.Net.Mail.MailMessage</codeEntityReference> class.
+							When you use the <token>PRODUCTNAME</token> API,
+							you are essentially using 
+							<codeEntityReference>T:System.Net.Mail.MailMessage</codeEntityReference> with
+							extra features,
+							so your code will look just as if it used the standard .NET Framework's functionality.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<legacyBold>Comprehensive.</legacyBold> 
+							For template transformations,
+							<token>PRODUCTNAME</token> uses the popular
+							<externalLink>
+								<linkText>Razor syntax</linkText>
+								<linkUri>https://github.com/Antaris/RazorEngine/wiki/1.-About-Razor-and-its-syntax</linkUri>
+							</externalLink>
+							which goes far beyond text string replacement.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<legacyBold>Flexible.</legacyBold>
+							&#160;<token>PRODUCTNAME</token> assumes that your email message templates will be translated
+							to different languages, but it has built-in logic that would allow for fallbacks to 
+							alternative or default translations if a particular language or culture is not available.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<legacyBold>Testable.</legacyBold> 
+							&#160;<token>PRODUCTNAME</token> allows you to easily test email
+							templates without running your application.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<legacyBold>Documented.</legacyBold> 
+							&#160;<token>PRODUCTNAME</token> provides extensive documentation and code samples.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<legacyBold>And more.</legacyBold> 
+							&#160;<token>PRODUCTNAME</token> offers other nice features.
+							For example, it allows you to specify the email subject in the 
+							<inlineCode>title</inlineCode> element of the email template.
+							At run time, it will use this value to set the subject without any additional code.
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+		
+		<relatedTopics>
+			<link xlink:href="b7fe3bb9-1aac-482b-a4de-e3b69c82237a" />
+			<link xlink:href="3d4dfec9-a4d8-4b9c-8b00-def41da5ff74" />
+			<link xlink:href="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="a7b972ef-99f2-459b-bed0-74016adf0682" revisionNumber="1">
+  <developerSampleDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ 		<introduction>
+			<para>
+				This sample illustrates how to load an email message template 
+				from a localized file, perform data transformation
+				substituting text placeholder with the properties defined at run time,
+				and send the message to the specified recipient(s).
+			</para>
+			<para>
+				This sample is based on the <token>PRODUCTNAMEEXE</token>
+				code base.
+			</para>
+		</introduction>
+
+		<section address="Program">
+			<title>Program class</title>
+			<content>
+				<para>
+					The <codeEntityReference>T:Mailr.Client.Program</codeEntityReference> 
+					class is responsible for reading command line, setting
+					the program options, loading the email template from a localized file,
+					performing data transformations, and sending the email message to the
+					specified recipient(s):
+				</para>
+				<code source="..\MailrExe\Program.cs" language="c#"/>
+				<para>
+					To understand the implementation of command-line processing,
+					see the <link xlink:href="d4f89739-6d1d-45f5-b5b6-fb47dd013951"/> section.
+				</para>
+			</content>
+		</section>
+
+    <relatedTopics>
+    </relatedTopics>
+  </developerSampleDocument>
+</topic>

@@ -1,0 +1,3 @@
+﻿nuget.exe setapikey API-KEY-GUID
+nuget.exe pack MailrLib.csproj -Prop Configuration=Release
+nuget.exe pack -sym MailrLib.csproj -Prop Configuration=Release
