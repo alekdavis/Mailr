@@ -28,6 +28,21 @@
 			</para>
     </introduction>
 
+		<section address="NuGet">
+			<title>Usage</title>
+			<content>
+				<para>
+					To integrate <token>PRODUCTNAMELIB</token> with your application,
+					add the 
+					<externalLink>
+						<linkText>Mailr.NET Class Library</linkText>
+						<linkUri>https://www.nuget.org/packages/Mailr</linkUri>
+					</externalLink>
+					NuGet package to your Visual Studio project.
+				</para>
+			</content>
+		</section>
+		
     <section address="Dependencies">
       <title>Dependencies</title>
       <content>

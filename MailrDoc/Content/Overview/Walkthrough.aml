@@ -6,11 +6,16 @@
 
 		<introduction>
 			<para>
-				The following process illustrates how you can use
-				localized email templates in your application.
-				It assumes that the templates are in HTML format.
+				The following process illustrates how you can build
+				localized email templates consumed by your application.
+				It assumes that the templates are in the HTML format.
 				The process would be similar for plain-text
 				templates with a few obvious steps skipped.
+			</para>
+			<para>
+				To see how the templates can be invoked from an application,
+				see the <link xlink:href="fcbd5503-9bc9-441b-a12d-c2b501cd3db3"/>
+				section.
 			</para>
 		</introduction>
 

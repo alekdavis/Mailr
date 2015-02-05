@@ -49,7 +49,7 @@ namespace Mailr
 	/// </para>
 	/// <para>
 	/// <code>
-	/// msg.Load("..\\Templates", "Welcome", ".xhtml", "es-mx");
+	/// msg.Load("..\\Templates", "Welcome", "es-mx", ".xhtml");
 	/// </code>
 	/// </para>
 	/// <para>
@@ -106,16 +106,7 @@ namespace Mailr
 	/// <code>
 	/// SmtpClient smtp = new SmtpClient(server);
 	/// 
-	/// smtp.UseDefaultCredentials = true;
-	/// 
-	/// try
-	/// {
-	///     smtp.Send(msg);
-	/// }
-	/// catch(Exception ex)
-	/// {
-	///     // Handle exception.
-	/// }
+	/// smtp.Send(msg);
 	/// </code>
 	/// </para>
 	/// <para>

@@ -26,6 +26,9 @@
           <HelpKeyword index="K" term="class library" />
           <HelpKeyword index="K" term="API" />
           <HelpKeyword index="K" term="dependencies" />
+          <HelpKeyword index="K" term="usage" />
+          <HelpKeyword index="K" term="package" />
+          <HelpKeyword index="K" term="nuget" />
         </HelpKeywords>
       </Topic>
       <Topic id="702e11e9-9858-4173-950f-083888e33b06" visible="True" title="Client tool">
@@ -45,7 +48,7 @@
         <HelpKeyword index="K" term="encoding" />
       </HelpKeywords>
     </Topic>
-    <Topic id="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" visible="True" title="Walkthrough">
+    <Topic id="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" visible="True" isSelected="true" title="Walkthrough">
       <HelpKeywords>
         <HelpKeyword index="K" term="walkthrough" />
         <HelpKeyword index="K" term="example" />
@@ -137,7 +140,7 @@
       </Topic>
     </Topic>
   </Topic>
-  <Topic id="fbc07002-a86a-414b-aab7-381641c6fbe8" visible="True" isSelected="true" title="Resources">
+  <Topic id="fbc07002-a86a-414b-aab7-381641c6fbe8" visible="True" title="Resources">
     <HelpKeywords>
       <HelpKeyword index="K" term="resources" />
       <HelpKeyword index="K" term="references" />

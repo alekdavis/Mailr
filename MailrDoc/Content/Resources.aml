@@ -131,6 +131,15 @@
 							(see references at the end of the post)
 						</para>
 					</listItem>
+					<listItem>
+						<para>
+							<externalLink>
+								<linkText>Send HTML email from VBScript using CDO</linkText>
+								<linkUri>http://alekdavis.blogspot.com/2013/03/send-html-email-from-vbscript-using-cdo.html</linkUri>
+							</externalLink>
+							(VBScript file you can use to send email messages)
+						</para>
+					</listItem>
 				</list>
 			</content>
 		</section>
