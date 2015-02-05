@@ -16,14 +16,14 @@ While you may find many alternative solutions that will allow you to generate em
 The solution includes three projects:
 
 - MailrLib: implements the Mailr.NET class library (API)
-- MailrCmd: implements a command-line tool for testing email templates
+- MailrExe: implements a command-line tool for testing email templates
 - MailrDoc: implements a [Sandcastle](https://github.com/EWSoftware/SHFB) documentation project that builds the user's guide
 
 ## Can I just download the binaries?
 Of course, you can. Download individual components:
 
 - [Mailr.NET Class Library](../master/MailrLib/bin/Release/Mailr.dll?raw=true)
-- [Mailr.NET Client Tool](../master/MailrCmd/bin/Release/MailrCmd.exe?raw=true)
+- [Mailr.NET Client Tool](../master/MailrExe/bin/Release/MailrCmd.exe?raw=true)
 - [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true) (don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading)
 
 ## How to use the Mailr.NET API?
