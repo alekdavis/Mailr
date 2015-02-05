@@ -8,10 +8,9 @@
 
 # Build results
 [Dd]ebug/
-[Rr]elease/*
+[Bbin]/[Rr]elease/*
 x64/
 build/
-[Bb]in/*
 [Oo]bj/
 
 # Exceptions: Include Release binaries
@@ -48,6 +47,12 @@ build/
 *.pidb
 *.log
 *.scc
+
+# Help files
+*.chw
+
+#VSHOST files
+*.vshost.exe
 
 # Visual C++ cache files
 ipch/

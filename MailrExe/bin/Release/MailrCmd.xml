@@ -1,0 +1,666 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MailrCmd</name>
+    </assembly>
+    <members>
+        <member name="T:Mailr.Client.Options">
+            <summary>
+            Defines command-line options supported by <token>PRODUCTNAMEEXE</token>.
+            </summary>
+            <remarks>
+            Command-line handling requires
+            <see href="https://www.nuget.org/packages/Plossum.CommandLine/">Plossum CommandLine</see>
+            Nuget package (see
+            <see href="http://www.codeproject.com/Articles/19869/Powerful-and-simple-command-line-parsing-in-C">documentation</see>).
+            </remarks>
+        </member>
+        <member name="M:Mailr.Client.Options.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mailr.Client.Options"/> class.
+            </summary>
+        </member>
+        <member name="P:Mailr.Client.Options.Help">
+            <summary>
+            Gets or sets a value indicating whether 
+            <token>PRODUCTNAMEEXE</token> is invoked in the help mode,
+            so it would print usage information.
+            </summary>
+            <value>
+              <c>true</c> if the program is invoked with the <c>/help</c> command-line switch
+              or without any argument; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/help</c>, <c>/?</c>, <c>/h</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /h
+            </code>
+            </example>
+        </member>
+        <member name="P:Mailr.Client.Options.SmtpServer">
+            <summary>
+            Gets or sets the name or IP address of the SMTP server host.
+            </summary>
+            <value>
+            The name or IP address of the SMTP server passed via 
+            the <c>/server</c> command-line switch and then assigned to the
+            <see cref="P:System.Net.Mail.SmtpClient.Host">SmtpClient.Host</see>
+            property.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/server</c>, <c>/s</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /s:smtp.company.com [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.SmtpPort"/>
+        </member>
+        <member name="P:Mailr.Client.Options.SmtpPort">
+            <summary>
+            Gets or sets the port number of the SMTP server host process.
+            </summary>
+            <value>
+            The SMTP server host port passed via 
+            the <c>/port</c> command-line switch and then assigned to the
+            <see cref="P:System.Net.Mail.SmtpClient.Port">SmtpClient.Port</see>
+            property.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/port</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /s:smtp.company.com /port:25 [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.SmtpServer"/>
+        </member>
+        <member name="P:Mailr.Client.Options.SmtpUser">
+            <summary>
+            Gets or sets the user ID for authenticating the mail sender.
+            </summary>
+            <value>
+            The user ID passed via 
+            the <c>/user</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.SmtpClient.Credentials">SmtpClient.Credentials</see>
+            property.
+            If the user ID is not specified, the 
+            <see cref="P:System.Net.CredentialCache.DefaultNetworkCredentials"/>
+            value will be used.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/user</c>, <c>/u</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /u:myuserid /p:mypassword [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.SmtpPassword"/>
+        </member>
+        <member name="P:Mailr.Client.Options.SmtpPassword">
+            <summary>
+            Gets or sets the password for authenticating the mail sender.
+            </summary>
+            <value>
+            The password passed via 
+            the <c>/password</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.SmtpClient.Credentials">SmtpClient.Credentials</see>
+            property.
+            If <see cref="P:Mailr.Client.Options.SmtpUser"/> is not specified,
+            this parameter will be ignored.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/user</c>, <c>/u</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /u:myuserid /p:mypassword [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.SmtpUser"/>
+        </member>
+        <member name="P:Mailr.Client.Options.MailSubject">
+            <summary>
+            Gets or sets the email subject.
+            </summary>
+            <value>
+            The email subject passed via 
+            the <c>/subject</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.MailMessage.Subject">MailMessage.Subject</see>
+            property.
+            If the email subject is not specified,
+            the program will attempt to set it using the transformed value of the
+            <c>title</c> tag of the HTML message body.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/subject</c>, <c>/sub</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /sub:"Hello, world!" [...]
+            </code>
+            </example>
+            <seealso cref="T:Mailr.MailTemplate"/>
+            <seealso cref="O:Mailr.MailTemplate.Transform"/>
+        </member>
+        <member name="P:Mailr.Client.Options.MailFromAddress">
+            <summary>
+            Gets or sets the email address of the message sender.
+            </summary>
+            <value>
+            The email address of the message sender passed via 
+            the <c>/from</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.MailMessage.Subject">MailMessage.From</see>
+            property.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/from</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /from:sender@company.com [...]
+            </code>
+            </example>
+        </member>
+        <member name="P:Mailr.Client.Options.MailToAddress">
+            <summary>
+            Gets or sets the email address(es) of the message recipient(s).
+            </summary>
+            <value>
+            The email address(es) of the message recipient(s) passed via 
+            the <c>/to</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.MailMessage.To">MailMessage.To</see>
+            property.
+            If this parameter is not specified,
+            the recipient's email address will be set to the 
+            <see cref="P:Mailr.Client.Options.MailFromAddress"/> parameter value.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/from</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none" title="Send mail to one recipient">
+            <token>FILENAMEEXE</token> /to:recipient@company.com [...]
+            </code>
+            <code language="none" title="Send mail to two recipients">
+            <token>FILENAMEEXE</token> /to:recipient1@company.com,recipient2@company.com [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.MailFromAddress"/>
+        </member>
+        <member name="P:Mailr.Client.Options.MailCcAddress">
+            <summary>
+            Gets or sets the email address(es) of the message CC recipient(s).
+            </summary>
+            <value>
+            The email address(es) of the message 
+            <see href="http://en.wikipedia.org/wiki/Carbon_copy#Email">CC</see>
+            recipient(s) passed via 
+            the <c>/cc</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.MailMessage.CC">MailMessage.CC</see>
+            property.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/cc</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none" title="Send carbon copy to one recipient">
+            <token>FILENAMEEXE</token> /bcc:recepient@company.com [...]
+            </code>
+            <code language="none" title="Send carbon copy to two recipients">
+            <token>FILENAMEEXE</token> /bcc:recipient1@company.com,recipient2@company.com [...]
+            </code>
+            </example>
+        </member>
+        <member name="P:Mailr.Client.Options.MailBccAddress">
+            <summary>
+            Gets or sets the email address(es) of the message BCC recipient(s).
+            </summary>
+            <value>
+            The email address(es) of the message
+            <see href="http://en.wikipedia.org/wiki/Carbon_copy#Email">BCC</see>
+            recipient(s) passed via 
+            the <c>/bcc</c> command-line switch and then used to initialize the
+            <see cref="P:System.Net.Mail.MailMessage.Bcc">MailMessage.Bcc</see>
+            property.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/bcc</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none" title="Send blind carbon copy to one recipient">
+            <token>FILENAMEEXE</token> /bcc:recepient@company.com [...]
+            </code>
+            <code language="none" title="Send blind carbon copy to two recipients">
+            <token>FILENAMEEXE</token> /bcc:recipient1@company.com,recipient2@company.com [...]
+            </code>
+            </example>
+        </member>
+        <member name="P:Mailr.Client.Options.TemplateFilePath">
+            <summary>
+            Gets or sets the template file path.
+            </summary>
+            <value>
+            The path to the template file passed via 
+            the <c>/file</c> command-line switch and used
+            to generate email message body.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/file</c>, <c>/f</c>.
+            </para>
+            <para>
+            This command-line switch cannot be used in combination with the
+            following switch(es): 
+            <c>/dir</c>, <c>/name</c>, <c>/culture</c>, <c>/ext</c>, and <c>/format</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none" title="Use relative path">
+            <token>FILENAMEEXE</token> /f:..\..\Email\Templates\Hello_en-us.html [...]
+            </code>
+            <code language="none" title="Use absolute path">
+            <token>FILENAMEEXE</token> /f:"c:\AppFolder\Email\Templates\Hello_en-us.html" [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.TemplateDirPath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateName"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateCulture"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateExtension"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateNameFormat"/>
+        </member>
+        <member name="P:Mailr.Client.Options.TemplateDirPath">
+            <summary>
+            Gets or sets the directory part of the template file path.
+            </summary>
+            <value>
+            The path to the directory holding the template file passed via 
+            the <c>/dir</c> command-line switch.
+            This folder will be used to generate path to the template file
+            in the specified <see cref="P:Mailr.Client.Options.TemplateNameFormat">format</see>.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/dir</c>, <c>/d</c>, <c>/directory</c>.
+            </para>
+            <para>
+            This command-line switch cannot be used in combination with the
+            <c>/file</c> switch. 
+            </para>
+            </remarks>
+            <example>
+            <code language="none" title="Use relative path">
+            <token>FILENAMEEXE</token> /f:..\..\Email\Templates [...]
+            </code>
+            <code language="none" title="Use absolute path">
+            <token>FILENAMEEXE</token> /f:"c:\AppFolder\Email\Templates" [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.TemplateFilePath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateName"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateCulture"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateExtension"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateNameFormat"/>
+        </member>
+        <member name="P:Mailr.Client.Options.TemplateName">
+            <summary>
+            Gets or sets the template name part of the template file path.
+            </summary>
+            <value>
+            The base name of the template file passed via 
+            the <c>/name</c> command-line switch.
+            This name will be used to generate path to the template file
+            in the specified <see cref="P:Mailr.Client.Options.TemplateNameFormat">format</see>.
+            </value>
+            <remarks>
+            <para>
+            This parameter should not include the culture (or language)
+            as well as the file extension parts.
+            </para>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/name</c>, <c>/n</c>.
+            </para>
+            <para>
+            This command-line switch cannot be used in combination with the
+            <c>/file</c> switch. 
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /n:Hello [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.TemplateFilePath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateDirPath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateCulture"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateExtension"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateNameFormat"/>
+        </member>
+        <member name="P:Mailr.Client.Options.TemplateCulture">
+            <summary>
+            Gets or sets the culture or language code part of the
+            template file path.
+            </summary>
+            <value>
+            The template localization culture or language code passed via 
+            the <c>/culture</c> command-line switch.
+            This name will be used to generate path to the template file
+            in the specified <see cref="P:Mailr.Client.Options.TemplateNameFormat">format</see>.
+            If this argument is not specified, the 
+            <see cref="P:Mailr.MailTemplate.DefaultCulture"/>
+            may be used.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/culture</c>, <c>/c</c>.
+            </para>
+            <para>
+            This command-line switch cannot be used in combination with the
+            <c>/file</c> switch. 
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /c:es-mx [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.TemplateFilePath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateDirPath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateName"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateExtension"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateNameFormat"/>
+            <seealso cref="P:Mailr.MailTemplate.DefaultCulture"/>
+        </member>
+        <member name="P:Mailr.Client.Options.TemplateExtension">
+            <summary>
+            Gets or sets the file extension part of the template file path.
+            </summary>
+            <value>
+            The file extension passed via 
+            the <c>/culture</c> command-line switch.
+            This extension will be used to generate path to the template file
+            in the specified <see cref="P:Mailr.Client.Options.TemplateNameFormat">format</see>.
+            If this argument is not specified, the default
+            <see cref="P:Mailr.MailTemplate.FileExtension"/>
+            may be used.
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/extension</c>, <c>/e</c>, <c>/ext</c>.
+            </para>
+            <para>
+            This command-line switch cannot be used in combination with the
+            <c>/file</c> switch. 
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /e:.xhtml [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.TemplateFilePath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateDirPath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateName"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateCulture"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateNameFormat"/>
+            <seealso cref="P:Mailr.MailTemplate.FileExtension"/>
+        </member>
+        <member name="P:Mailr.Client.Options.TemplateNameFormat">
+            <summary>
+            Gets or sets the format string used to generate a localized template name.
+            </summary>
+            <value>
+            The format string passed via 
+            the <c>/format</c> command-line switch.
+            This format will be used to generate the file name part in the 
+            template file path.
+            The format string must have three placeholders with indexes 0, 1, and 2
+            corresponding to the template name, culture/language code, 
+            and file extension respectively, e.g. <c>{0}_{1}{2}</c> which may result
+            in the file name like <c>Hello_en-us.html</c>.
+            If this argument is not specified, the default
+            will be used (see additional details in the 
+            <see cref="P:Mailr.MailTemplate.FileNameFormat">documentation</see>).
+            </value>
+            <remarks>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/format</c>.
+            </para>
+            <para>
+            This command-line switch cannot be used in combination with the
+            <c>/file</c> switch. 
+            </para>
+            </remarks>
+            <example>
+            <code language="none">
+            <token>FILENAMEEXE</token> /c:{0}_{1}{2} [...]
+            </code>
+            </example>
+            <seealso cref="P:Mailr.Client.Options.TemplateFilePath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateDirPath"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateName"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateCulture"/>
+            <seealso cref="P:Mailr.Client.Options.TemplateExtension"/>
+            <seealso cref="P:Mailr.MailTemplate.FileNameFormat"/>
+        </member>
+        <member name="P:Mailr.Client.Options.DataFilePath">
+            <summary>
+            Gets or sets the data file path.
+            </summary>
+            <value>
+            The path to the data file passed via 
+            the <c>/data</c> command-line switch and used
+            to set up the substitution stings for template transformation.
+            </value>
+            <remarks>
+            <para>
+            The data file must be a text file holding <c>name=value</c> pairs
+            matching the placeholder names in the email template.
+            Each data pair must be on a separate line:
+            <code language="none">
+            Name=John Smith
+            UnsubscribeID=467DAA31B9F941E99320C44644FFD104
+            </code>
+            </para>
+            <para>
+            Command-line switch (and aliases): 
+            <c>/data</c>.
+            </para>
+            </remarks>
+            <example>
+            <code language="none" title="Use relative path">
+            <token>FILENAMEEXE</token> /d:..\..\Email\Templates\Hello_en-us.txt [...]
+            </code>
+            <code language="none" title="Use absolute path">
+            <token>FILENAMEEXE</token> /d:"c:\AppFolder\Email\Templates\Hello_en-us.txt" [...]
+            </code>
+            </example>
+        </member>
+        <member name="T:Mailr.Client.Program">
+            <summary>
+            Implements <token>PRODUCTNAMEEXE</token>,
+            a command-line tool allowing you to test
+            the <see cref="N:Mailr"/> library.
+            </summary>
+            <remarks>
+            <para>
+            <token>PRODUCTNAMEEXE</token> sends email message generated from
+            a localized email template file after applying transformations
+            defined in a data file (the data file is a text file holding
+            the name=value pairs that will be used for data transformations).
+            </para>
+            <para>
+            <token>PRODUCTNAMEEXE</token> is implemented as a single
+            stand-alone executable with all dependencies,
+            including <token>PRODUCTNAMELIB</token>, merged using
+            <a href="https://www.nuget.org/packages/ilmerge">ILMerge</a>.
+            </para>
+            <para>
+            For additional information and usage examples,
+            see the <see cref="M:Mailr.Client.Program.Main(System.String[])"/> method description.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Mailr.Client.Program.Main(System.String[])">
+            <summary>
+            Main routine invoked by <token>PRODUCTNAMEEXE</token>.
+            </summary>
+            <param name="args">
+            Command-line arguments that define the program options.
+            The <see cref="T:Mailr.Client.Options"/> class documentation
+            describes the supported options and their mapping to
+            command-line parameters.
+            </param>
+            <remarks>
+            To see the basic usage information,
+            run the program with out command-line arguments.
+            </remarks>
+            <example>
+            <note>
+            In the following examples, command-line options are split across
+            multiple lines for better readability.
+            When running the program, make sure that all command-line options
+            are passed on the same line.
+            </note>
+            <para>
+            Display program usage information:
+            </para>
+            <code language="none">
+            <token>FILENAMEEXE</token> /help
+            </code>
+            <para>
+            Send message from a template file without transforming it.
+            Use the sender's email address for the recipient. 
+            The email template file comes from the <c>Templates</c> 
+            sub-folder under the working directory:
+            </para>
+            <code language="none">
+            <token>FILENAMEEXE</token> /s:smtp.contoso.com 
+            /from:sender@contoso.com 
+            /file:Templates\Hello_en-us.html
+            </code>
+            <para>
+            Same as above, only send the message to a different recipient:
+            </para>
+            <code language="none">
+            <token>FILENAMEEXE</token> /s:smtp.contoso.com 
+            /from:sender@contoso.com 
+            /to:recipient@contoso.com
+            /file:Templates\Hello_en-us.html
+            </code>
+            </example>
+        </member>
+        <member name="M:Mailr.Client.Program.Initialize(System.String[],Mailr.Client.Options@)">
+            <summary>
+            Initializes the program settings using command-line options.
+            </summary>
+            <param name="args">
+            Command-line arguments.
+            </param>
+            <param name="options">
+            Program options.
+            </param>
+            <returns>
+            <c>true</c> if the program needs to continue;
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Mailr.Client.Program.GetData(System.String)">
+            <summary>
+            Reads <c>name=value</c> pairs from a text file into a dictionary object..
+            </summary>
+            <param name="dataFilePath">
+            The data file path.
+            </param>
+            <returns>
+            Dictionary object holding string substitutions that will be used
+            for template transformation.
+            </returns>
+        </member>
+        <member name="M:Mailr.Client.Program.ProcessTemplate(Mailr.Client.Options,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Loads email message template from a file and performs transformation.
+            </summary>
+            <param name="options">
+            Program options.
+            </param>
+            <param name="data">
+            Dictionary object holding substitution strings used by the transformation.
+            </param>
+            <returns>
+            Mail message generated from the template file.
+            </returns>
+        </member>
+        <member name="M:Mailr.Client.Program.SendMessage(Mailr.Client.Options,System.Net.Mail.MailMessage)">
+            <summary>
+            Sends the generated email message.
+            </summary>
+            <param name="options">
+            Program options.
+            </param>
+            <param name="msg">
+            Email message.
+            </param>
+        </member>
+        <member name="M:Mailr.Client.Program.ShowError(System.String,System.Object[])">
+            <summary>
+            Builds and writes error message to console.
+            </summary>
+            <param name="errMsg">
+            The error message (or format string).
+            </param>
+            <param name="args">
+            Optional arguments.
+            </param>
+        </member>
+        <member name="M:Mailr.Client.Program.ShowError(System.Exception)">
+            <summary>
+            Writes error messages from immediate and inner exceptions to console.
+            </summary>
+            <param name="ex">
+            Exception object.
+            </param>
+        </member>
+    </members>
+</doc>
