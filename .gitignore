@@ -7,13 +7,16 @@
 *.sln.docstates
 
 # Build results
-
 [Dd]ebug/
-[Rr]elease/
+[Rr]elease/*
 x64/
 build/
-[Bb]in/
+[Bb]in/*
 [Oo]bj/
+
+# Exceptions: Include Release binaries
+![Bb]in/[Rr]elease/Mailr.dll
+![Bb]in/[Rr]elease/MailrCmd.exe
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
@@ -132,7 +135,6 @@ UpgradeLog*.htm
 App_Data/*.mdf
 App_Data/*.ldf
 
-
 #LightSwitch generated files
 GeneratedArtifacts/
 _Pvt_Extensions/
@@ -154,7 +156,3 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
-
-# Exceptions: Include Release binaries
-!Mailr.dll
-!MailrCmd.exe
