@@ -22,9 +22,9 @@ The solution includes three projects:
 ## Can I just download the binaries?
 Of course, you can. Download individual components:
 
-- Mailr.NET Class Library (TODO: ADD HYPERLINK)
-- Mailr.NET Client Tool (TBD: ADD HYPERLINK)
-- [Mailr.NET User's Guide] (../blob/master/MailrDoc/Help/Mailr.chm?raw=true) (don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading)
+- [Mailr.NET Class Library](../blob/master/MailrLib/bin/Release/Mailr.dll?raw=true)
+- [Mailr.NET Client Tool](../blob/master/MailrCmd/bin/Release/MailrCmd.exe?raw=true)
+- [Mailr.NET User's Guide](../blob/master/MailrDoc/Help/Mailr.chm?raw=true) (don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading)
 
 ## How to use the Mailr.NET API?
 To use Mailr.NET class library (`Mailr.dll`) in your application, add the following NuGet package to the project:
@@ -57,11 +57,13 @@ msg.Load("..\\Templates\\Welcome_es-mx.xhtml");
 // folder, file naming format, and file name parts
 // (name of the template, culture or language, extension).
 // If a file for the specified culture does not exist,
-// Mailr.NET will try loading a from a fallback version,
+// Mailr.NET will try loading a fallback version,
 // e.g. try cultures in the following order:
-// - `es-mx`, if not found, try:
-// - `es`, if not found, try default culture:
-// - `en-us`, if not found, try without culture.
+// - Start with the specified culture 'es-mx'.
+// - If 'Welcome_es-mx.xhtml' is not found, try 'es'.
+// - If 'Welcome_es.xhtml' is not found, try default culture 'en-us'.
+// - If 'Welcome_en-us.xhtml' is not found, try without culture.
+// - 'Welcome.xhtml' would be the final file to be tried. 
 msg.Load("..\\Templates", "Welcome", "es-mx", ".xhtml");
 
 // Transform template passing data substitutions.
@@ -74,10 +76,10 @@ msg.Transform(new { Name = "Jose", });
 SmtpClient smtp = new SmtpClient(server);
 smtp.Send(msg);
 ```
-For more detailed examples, see [Mailr.NET User's Guide] (../blob/master/MailrDoc/Help/Mailr.chm?raw=true).
+For more detailed examples, see [Mailr.NET User's Guide](../blob/master/MailrDoc/Help/Mailr.chm?raw=true).
 
 ## How to use the Mailr.NET client tool to test email templates?
-The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the '/?' switch to see usage information (for more information check the [Mailr.NET User's Guide] (../blob/master/MailrDoc/Help/Mailr.chm?raw=true)). 
+The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the '/?' switch to see usage information (for more information check the [Mailr.NET User's Guide](../blob/master/MailrDoc/Help/Mailr.chm?raw=true)). 
 
 ## Which version of the .NET Framework is required?
 Mailr.NET requires .NET Framework 4.5 or later.
@@ -89,4 +91,4 @@ The Mailr.NET class library depends on the components installed by the following
 - [Microsoft ASP.NET Razor](https://www.nuget.org/packages/Microsoft.AspNet.Razor)
 - [RazorEngine](https://www.nuget.org/packages/RazorEngine/)
 
-Additional dependencies for building the Mailr.NET projects are described in the [Mailr.NET User's Guide] (../blob/master/MailrDoc/Help/Mailr.chm?raw=true).
+Additional dependencies for building the Mailr.NET projects are described in the [Mailr.NET User's Guide](../blob/master/MailrDoc/Help/Mailr.chm?raw=true).
