@@ -79,7 +79,7 @@ smtp.Send(msg);
 For more detailed examples, see [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
 
 ## How to use the Mailr.NET client tool to test email templates?
-The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the '/?' switch to see usage information (for more information check the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true)). 
+The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information (for more information check the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true)). 
 
 ## Which version of the .NET Framework is required?
 Mailr.NET requires .NET Framework 4.5 or later.
