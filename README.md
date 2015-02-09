@@ -39,7 +39,7 @@ using Mailr;
 ...
 
 // MailTemplate is derived from System.Net.Mail.MailMessage.
-// It's the only class additional class that your app will need.
+// It's the only additional class that your app will need.
 // Use the same constructor to create a mail template object
 // as you would if you were to create a MailMessage object.
 MailTemplate msg = new MailTemplate
