@@ -18,31 +18,27 @@ namespace Mailr.Client
 	/// <see href="http://www.codeproject.com/Articles/19869/Powerful-and-simple-command-line-parsing-in-C">documentation</see>).
 	/// </remarks>
 	[CommandLineManager(EnabledOptionStyles=OptionStyles.Windows)]
-
 	[CommandLineOptionGroup(
 		"smtp", 
-		Name="SMTP Host Info", 
+		Name="SMTP host info", 
 		Description="Defines the SMTP host info.", 
 		Require=OptionGroupRequirement.None)]
-
 	[CommandLineOptionGroup(
 		"mail", 
-		Name="Mail Settings", 
+		Name="Mail settings", 
 		Description="Defines the email properties, such as subject, sender's address, recipient address(es), etc.", 
 		Require=OptionGroupRequirement.None)]
-
 	[CommandLineOptionGroup(
 		"template", 
-		Name="BodyTemplate Definition", 
+		Name="Template definition", 
 		Description="Specifies the template information. " +
 			"The /file switch cannot be used with the combination of any other switch in this group.", 
-		Require=OptionGroupRequirement.None)]
-
+		Require=OptionGroupRequirement.AtLeastOne)]
 	[CommandLineOptionGroup(
 		"data", 
-		Name="Data Substitutions", 
+		Name="Data substitutions", 
 		Description="Defines text substitutions for template transformation.")]
-	internal class Options
+	public class Options
 	{
 		/// <summary>
 		/// Gets or sets a value indicating whether 
@@ -70,7 +66,7 @@ namespace Mailr.Client
 			Description="Shows this help text.", 
 			MinOccurs=0, 
 			MaxOccurs=1)]
-		internal bool Help {  get; set; }
+		public bool Help {  get; set; }
 
 		/// <summary>
 		/// Gets or sets the name or IP address of the SMTP server host.
@@ -100,7 +96,7 @@ namespace Mailr.Client
 			MinOccurs=0, 
 			MaxOccurs=1, 
 			GroupId="smtp")]
-		internal string SmtpServer {  get; set; }
+		public string SmtpServer {  get; set; }
 
 		/// <summary>
 		/// Gets or sets the port number of the SMTP server host process.
@@ -129,7 +125,7 @@ namespace Mailr.Client
 			MinOccurs=0, 
 			MaxOccurs=1, 
 			GroupId="smtp")]
-		internal int SmtpPort {  get; set; }
+		public int SmtpPort {  get; set; }
 
 		/// <summary>
 		/// Gets or sets the user ID for authenticating the mail sender.
@@ -162,7 +158,7 @@ namespace Mailr.Client
 			MinOccurs=0, 
 			MaxOccurs=1, 
 			GroupId="smtp")]
-		internal string SmtpUser {  get; set; }
+		public string SmtpUser {  get; set; }
 
 		/// <summary>
 		/// Gets or sets the password for authenticating the mail sender.
@@ -194,7 +190,7 @@ namespace Mailr.Client
 			MinOccurs=0, 
 			MaxOccurs=1, 
 			GroupId="smtp")]
-		internal string SmtpPassword {  get; set; }
+		public string SmtpPassword {  get; set; }
 
 		/// <summary>
 		/// Gets or sets the email subject.
@@ -228,7 +224,7 @@ namespace Mailr.Client
 			MinOccurs=0,
 			MaxOccurs=1, 
 			GroupId="mail")]
-		internal string MailSubject { get; set; }
+		public string MailSubject { get; set; }
 
 		/// <summary>
 		/// Gets or sets the email address of the message sender.
@@ -256,7 +252,7 @@ namespace Mailr.Client
 			MinOccurs=1,
 			MaxOccurs=1, 
 			GroupId="mail")]
-		internal string MailFromAddress { get; set; }
+		public string MailFromAddress { get; set; }
 
 		/// <summary>
 		/// Gets or sets the email address(es) of the message recipient(s).
@@ -291,7 +287,7 @@ namespace Mailr.Client
 			MinOccurs=0,
 			MaxOccurs=1, 
 			GroupId="mail")]
-		internal string MailToAddress { get; set; }
+		public string MailToAddress { get; set; }
 
 		/// <summary>
 		/// Gets or sets the email address(es) of the message CC recipient(s).
@@ -324,7 +320,7 @@ namespace Mailr.Client
 			MinOccurs=0,
 			MaxOccurs=1, 
 			GroupId="mail")]
-		internal string MailCcAddress { get; set; }
+		public string MailCcAddress { get; set; }
 
 		/// <summary>
 		/// Gets or sets the email address(es) of the message BCC recipient(s).
@@ -357,7 +353,7 @@ namespace Mailr.Client
 			MinOccurs=0,
 			MaxOccurs=1, 
 			GroupId="mail")]
-		internal string MailBccAddress { get; set; }
+		public string MailBccAddress { get; set; }
 
 		/// <summary>
 		/// Gets or sets the template file path.
@@ -399,7 +395,7 @@ namespace Mailr.Client
 			MaxOccurs=1, 
 			Prohibits="dir,name,culture,ext,format",
 			GroupId="template")]
-		internal string TemplateFilePath { get; set; }
+		public string TemplateFilePath { get; set; }
 
 		/// <summary>
 		/// Gets or sets the directory part of the template file path.
@@ -441,7 +437,7 @@ namespace Mailr.Client
 			MaxOccurs=1,
 			Prohibits="file",
 			GroupId="template")]
-		internal string TemplateDirPath { get; set; }
+		public string TemplateDirPath { get; set; }
 
 		/// <summary>
 		/// Gets or sets the template name part of the template file path.
@@ -484,7 +480,7 @@ namespace Mailr.Client
 			MaxOccurs=1, 
 			Prohibits="file",
 			GroupId="template")]
-		internal string TemplateName { get; set; }
+		public string TemplateName { get; set; }
 
 		/// <summary>
 		/// Gets or sets the culture or language code part of the
@@ -528,7 +524,7 @@ namespace Mailr.Client
 			MaxOccurs=1, 
 			Prohibits="file",
 			GroupId="template")]
-		internal string TemplateCulture { get; set; }
+		public string TemplateCulture { get; set; }
 
 		/// <summary>
 		/// Gets or sets the file extension part of the template file path.
@@ -571,7 +567,7 @@ namespace Mailr.Client
 			MaxOccurs=1, 
 			Prohibits="file",
 			GroupId="template")]
-		internal string TemplateExtension { get; set; }
+		public string TemplateExtension { get; set; }
 
 		/// <summary>
 		/// Gets or sets the format string used to generate a localized template name.
@@ -617,7 +613,7 @@ namespace Mailr.Client
 			MaxOccurs=1, 
 			Prohibits="file",
 			GroupId="template")]
-		internal string TemplateNameFormat { get; set; }
+		public string TemplateNameFormat { get; set; }
 
 		/// <summary>
 		/// Gets or sets the data file path.
@@ -657,7 +653,7 @@ namespace Mailr.Client
 			MinOccurs=0, 
 			MaxOccurs=1, 
 			GroupId="data")]
-		internal string DataFilePath { get; set; }
+		public string DataFilePath { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Options"/> class.

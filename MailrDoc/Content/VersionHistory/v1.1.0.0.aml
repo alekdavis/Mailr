@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c03fa749-d2e1-4dcf-a96d-0726076235c2" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>
+				Version 1.1.0.0 was released on March 5, 2015.
+			</para>
+		</introduction>
+
+		<section>
+			<title>Changes in this release</title>
+			<content>
+
+				<list class="bullet">
+					<listItem>
+						<para>
+							Added logic, methods and properties for explicit and implicit handling
+							of special characters (<codeInline>@</codeInline> symbols) in the
+							templates.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Improved handling of templates that do not require data transformations.
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							Fixed minor problems in command-line handling for the testing tool.
+						</para>
+					</listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="549876bc-c8dc-49e1-ad41-7b6fef060243" />
+		</relatedTopics>
+  </developerConceptualDocument>
+</topic>

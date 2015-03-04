@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Dynamic;
 using System.Runtime.Caching;
+using System.Text;
+using System.Text.RegularExpressions;
 
 using RazorEngine;
 using HtmlAgilityPack;
@@ -119,17 +121,38 @@ namespace Mailr
 	{
 		#region Private properties
 
-		private string _templateFileNameFormat	= "{0}_{1}{2}";
-		private string _defaultCulture			= "en-us";
-		private string _defaultTemplateExtension= ".html";
-		private string _templateFilePath		= null;
-		private string _bodyTemplate			= null;
+		private string	_templateFileNameFormat		= "{0}_{1}{2}";
+		private string	_defaultCulture				= "en-us";
+		private string	_defaultTemplateExtension	= ".html";
+		private string	_templateFilePath			= null;
+		private string	_bodyTemplate				= null;
+		private bool	_escaped					= false;
 
 		private	static MemoryCache _cache		= MemoryCache.Default;
 
 		#endregion
 
 		#region Public properties
+
+		/// <summary>
+		/// Gets or sets a value indicating whether to automatically
+		/// escape the special characters that would cause
+		/// template transformation errors when a template is loaded
+		/// from a file.
+		/// </summary>
+		/// <value>
+		/// <para>
+		/// <c>true</c> if special characters should be escaped automatically; 
+		/// otherwise, <c>false</c>.
+		/// </para>
+		/// <para>
+		/// By default, this property is set to <c>true</c>.
+		/// </para>
+		/// </value>
+		/// <seealso cref="Escape()"/>
+		/// <seealso cref="Escape(string, bool)"/>
+		public bool AutoEscape { get; set; }
+
 		/// <summary>
 		/// Gets or sets a value indicating whether to cache 
 		/// non-transformed email templates.
@@ -166,11 +189,20 @@ namespace Mailr
 		/// The template used to generate the email message body.
 		/// </value>
 		/// <remarks>
+		/// <para>
 		/// In a typical case, this property should be loaded from 
 		/// a template file using the
 		/// <see cref="Load(string)"/>
 		/// method.
+		/// </para>
+		/// <para>
+		/// Special characters in the string value assigned to this
+		/// property (via the <c>set</c> method) will not be
+		/// escaped automatically.
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Escape()"/>
+		/// <seealso cref="Escape(string,bool)"/>
 		public string BodyTemplate 
 		{
 			get
@@ -182,6 +214,7 @@ namespace Mailr
 			{
 				Body			= null;
 				_bodyTemplate	= value; 
+				_escaped		= false;
 			}
 		}
 
@@ -527,7 +560,17 @@ namespace Mailr
 		/// <para>
 		/// The first find found will be used as the source of the email template.
 		/// </para>
+		/// <para>
+		/// If <see cref="AutoEscape"/> is set to <c>true</c>,
+		/// after loading the template, this method will
+		/// implicitly call the
+		/// <see cref="Escape()"/>
+		/// method.
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Load(string)"/>
+		/// <seealso cref="AutoEscape"/>
+		/// <seealso cref="O:Mailr.MailTemplate.Transform"/>
 		public void Load
 		(
 			string templateFolderPath,
@@ -558,47 +601,61 @@ namespace Mailr
 		/// This value can hold a relative or absolute path.
 		/// </param>
 		/// <remarks>
+		/// <para>
 		/// If the specified file does not exist
 		/// this method will not attempt to load a template from
 		/// an alternate path using the fallback algorithm
 		/// described in the 
 		/// <see cref="Load(String, String, String,String)"/>
 		/// method documentation.
+		/// </para>
+		/// <para>
+		/// If <see cref="AutoEscape"/> is set to <c>true</c>,
+		/// after loading the template, this method will
+		/// implicitly call the
+		/// <see cref="Escape()"/>
+		/// method.
+		/// </para>
 		/// </remarks>
+		/// <seealso cref="Load(string,string,string,string)"/>
+		/// <seealso cref="AutoEscape"/>
+		/// <seealso cref="O:Mailr.MailTemplate.Transform"/>
 		public void Load
 		(
 			string templateFilePath
 		)
 		{
 			Body			= null;
-			BodyTemplate	= null;
+			_bodyTemplate	= null;
+			_escaped		= false;
 
 			string cachedItemTemplateName = GetCachedTemplateName(templateFilePath);
 
 			if (UseCache)
 			{
-				BodyTemplate = _cache.Get(cachedItemTemplateName) as string;
+				_bodyTemplate = _cache.Get(cachedItemTemplateName) as string;
 			}
 
-			if (BodyTemplate == null)
+			if (_bodyTemplate == null)
 			{
 				try
 				{
 					using (StreamReader reader = new StreamReader(templateFilePath))
 					{
-						BodyTemplate = reader.ReadToEnd();
+						_bodyTemplate = reader.ReadToEnd();
 					}
 				}
-				catch(Exception ex)
+				catch (Exception ex)
 				{
-					throw new IOException(String.Format("Error reading file '{0}'.", templateFilePath), ex);
+					throw new IOException(
+						String.Format("Error reading file '{0}'.", templateFilePath), ex);
 				}
 
 				if (UseCache)
 				{
 					if (!_cache.Contains(cachedItemTemplateName))
 					{
-						_cache.Set(cachedItemTemplateName, BodyTemplate, CacheItemPolicy);
+						_cache.Set(cachedItemTemplateName, _bodyTemplate, CacheItemPolicy);
 					}
 				}
 			}
@@ -805,7 +862,13 @@ namespace Mailr
 			object model
 		)
 		{
+			// Escape @ signs for selected keywords, e.g.
+			// change '@media' to '@@media'.
+			if (AutoEscape)
+				Escape();
+
 			Body = Razor.Parse(BodyTemplate, model);
+
 			SetSubject();
 		}
 
@@ -826,10 +889,265 @@ namespace Mailr
 			T model
 		)
 		{
+			// Escape @ signs for selected keywords, e.g.
+			// change '@media' to '@@media'.
+			if (AutoEscape)
+				Escape();
+
 			Body = Razor.Parse<T>(BodyTemplate, model);
+
+			SetSubject();
+		}
+
+		/// <summary>
+		/// Prepares email message for delivery when no data transformations
+		/// need to be performed.
+		/// </summary>
+		/// <remarks>
+		/// This method set the empty <see cref="System.Net.Mail.MailMessage.Body"/>
+		/// property to a non-empty value of the <see cref="BodyTemplate"/> property
+		/// and process the message subject as described in the 
+		/// <see cref="Transform(NameValueCollection)"/> method description.
+		/// </remarks>
+		public void Transform()
+		{
+			if (String.IsNullOrEmpty(Body) && 
+				!String.IsNullOrEmpty(BodyTemplate))
+				Body = BodyTemplate;
+
 			SetSubject();
 		}
 		#endregion
+
+		#region Escape methods
+		/// <overloads>
+		/// Escapes the <c>@</c> sign in specific words 
+		/// to prevent template transformation errors
+		/// (e.g. converts <c>@media</c> to <c>@@media</c>).
+		/// </overloads>
+		/// <summary>
+		/// Escapes the <c>@</c> signs in the words identified in the 
+		/// custom HTML <c>meta</c> tag.
+		/// </summary>
+		/// <remarks>
+		/// <para>
+		/// This method is intended for HTML templates only.
+		/// It will use the settings identified in the custom
+		/// <c>meta</c> tag with the following properties:
+		/// </para>
+		/// <list type="bullet">
+		///	<item>
+		///	<description>
+		///	The <c>meta</c> element must have the <c>name</c>
+		///	attribute with the value <c>mailr-escape</c>.
+		///	</description>
+		/// </item>
+		///	<item>
+		///	<description>
+		///	The <c>content</c> attribute of the <c>meta</c> element 
+		///	must contain a comma-separated list of the words
+		///	that must be escaped.
+		///	</description>
+		///	</item>
+		///	<item>
+		///	<description>
+		/// Words in the comma-separated list defined in the
+		///	<c>content</c> attribute of the <c>meta</c> element 
+		///	must not include the <c>@</c> signs.
+		///	</description>
+		///	</item>
+		///	<item>
+		///	<description>
+		/// By default, word match will be case-insensitive.
+		/// To use case-sensitive search, append 
+		/// <c>;ignoreCase=false</c>
+		/// to the value of the <c>content</c> attribute.
+		/// Notice the semicolon (;) character used as a
+		/// separator between the word list an the case sensitivity
+		/// setting.
+		///	</description>
+		/// </item>
+		/// </list>
+		/// <para>
+		/// When called repeatedly for the same template instance,
+		/// this method will do nothing (after the first call).
+		/// </para>
+		/// <para>
+		/// This method is called implicitly by the 
+		/// <see cref="O:Mailr.MailTemplate.Transform"/>
+		/// methods if the value of the 
+		/// <see cref="AutoEscape"/> property is set to
+		/// <c>true</c>.
+		/// </para>
+		/// <para>
+		/// When called explicitly, this method must be invoked
+		/// after the template is loaded, but before the transformation
+		/// is performed.
+		/// </para>
+		/// </remarks>
+		/// <example>
+		/// <para>
+		/// The following examples illustrate how to specify
+		/// the words in the template body that start with the 
+		/// <c>@</c> sign and must be escaped to avoid
+		/// transformation errors:
+		/// </para>
+		/// <para>
+		/// <code language="html" title="Escape '@media'; case-insensitive search">
+		/// <![CDATA[
+		/// <meta name='mailr-escape' content='media'>
+		/// ]]>
+		/// </code>
+		/// <code language="html" title="Escape '@media', '@namespace'; case-insensitive search">
+		/// <![CDATA[
+		/// <meta name='mailr-escape' content='media,namespace'>
+		/// ]]>
+		/// </code>
+		/// <code language="html" title="Escape '@media'; case-sensitive search">
+		/// <![CDATA[
+		/// <meta name='mailr-escape' content='media;ignoreCase=false'>
+		/// ]]>
+		/// </code>
+		/// <code language="html" title="Escape '@media', '@font-face'; case-sensitive search">
+		/// <![CDATA[
+		/// <meta name='mailr-escape' content='media,font-face;ignoreCase=false'>
+		/// ]]>
+		/// </code>
+		/// </para>
+		/// </example>
+		/// <seealso cref="AutoEscape"/>
+		/// <seealso cref="Escape(string,bool)"/>
+		/// <seealso cref="Load(string)"/>
+		/// <seealso cref="Load(string,string,string,string)"/>
+		public void Escape()
+		{
+			if (String.IsNullOrEmpty(BodyTemplate) || 
+				_escaped || 
+				!IsBodyHtml)
+				return;
+
+			bool	ignoreCase	= true;
+			string	keywords	= null;
+
+			HtmlDocument doc = new HtmlDocument();
+			try
+			{
+				doc.LoadHtml(BodyTemplate);
+			}
+			catch (Exception ex)
+			{
+				throw new IOException(
+					String.Format("Error loading HTML from: {0}", 
+					BodyTemplate), 
+					ex);
+			}
+
+			_escaped = true;
+
+			try
+			{
+				HtmlNode node = 
+					doc.DocumentNode.SelectSingleNode("//meta[@name='mailr-escape']");
+
+				if (node == null)
+					return;
+
+				HtmlAttribute contentAttrib = node.Attributes["content"];
+
+				if (contentAttrib == null)
+					return;
+
+				string contentValue = contentAttrib.Value;
+
+				if (contentValue == null)
+					return;
+				
+				string[] values = contentValue.Split(';');
+
+				if (values == null || values.Length < 1)
+					return;
+
+				keywords = values[0];
+
+				if (values.Length > 1 && (!String.IsNullOrEmpty(values[1])))
+				{
+					if (values[1].StartsWith("ignoreCase=false", 
+							StringComparison.InvariantCultureIgnoreCase))
+						ignoreCase = false;
+				}
+
+				// Turn of indicator, since the overloaded method will also
+				// check and set it.
+				_escaped = false;
+				Escape(keywords, ignoreCase);
+			}
+			catch
+			{
+			}
+		}
+
+		/// <summary>
+		/// Escapes the <c>@</c> signs in the words identified in the 
+		/// custom HTML <c>meta</c> tag.
+		/// </summary>
+		/// <param name="keywords">
+		/// The list of comma-separated words that must be escaped,
+		/// such as <c>"media,font-face"</c>.
+		/// Notice that the words must not include the <c>@</c> sign.
+		/// </param>
+		/// <param name="ignoreCase">
+		/// Indicates whether word search must be case-sensitive.
+		/// By default, the search is case-insensitive.
+		/// </param>
+		/// <remarks>
+		/// <para>
+		/// This method must be invoked after the template is loaded, 
+		/// but before the transformation is performed.
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="AutoEscape"/>
+		/// <seealso cref="Escape()"/>
+		/// <seealso cref="Load(string)"/>
+		/// <seealso cref="Load(string,string,string,string)"/>
+		public void Escape
+		(
+			string	keywords,
+			bool	ignoreCase = true
+		)
+		{
+			if (String.IsNullOrEmpty(BodyTemplate) || 
+				_escaped || 
+				String.IsNullOrEmpty(keywords))
+				return;
+
+			string	bodyTemplate= BodyTemplate;
+			string	pattern		= null;
+
+			string[] words = keywords.Split(',');
+
+			foreach (string word in words)
+			{
+				if (String.IsNullOrEmpty(word))
+					continue;
+
+				// E.g. @(media).
+				pattern = String.Format("@({0})", word);
+
+				bodyTemplate = Regex.Replace
+				(
+					bodyTemplate, 
+					pattern, 
+					"@@$1", // @media -> @@media
+					ignoreCase ? 
+						RegexOptions.IgnoreCase : RegexOptions.None
+				);
+			}
+
+			BodyTemplate = bodyTemplate;
+			_escaped = true;
+		}
+		#endregion
+
 		#endregion
 
 		#region Private methods
@@ -838,36 +1156,35 @@ namespace Mailr
 		/// </summary>
 		private void SetSubject()
 		{
-			if (String.IsNullOrEmpty(Body) || (!IsBodyHtml))
+			if (String.IsNullOrEmpty(Body) || 
+				(!IsBodyHtml) || 
+				(!String.IsNullOrEmpty(Subject)))
 				return;
 
-			if (String.IsNullOrEmpty(Subject))
+			HtmlDocument doc = new HtmlDocument();
+			try
 			{
-				HtmlDocument doc = new HtmlDocument();
-				try
-				{
-					doc.LoadHtml(Body);
-				}
-				catch(Exception ex)
-				{
-					throw new IOException(
-						String.Format("Error loading HTML from: {0}", 
-						Body), 
-						ex);
-				}
+				doc.LoadHtml(Body);
+			}
+			catch (Exception ex)
+			{
+				throw new IOException(
+					String.Format("Error loading HTML from: {0}", 
+					Body), 
+					ex);
+			}
 
-				try
-				{
-					HtmlNode node = doc.DocumentNode.SelectSingleNode("//title");
+			try
+			{
+				HtmlNode node = doc.DocumentNode.SelectSingleNode("//title");
 
-					if (node != null)
-					{
-						Subject = node.InnerText;
-					}
-				}
-				catch
+				if (node != null)
 				{
+					Subject = node.InnerText;
 				}
+			}
+			catch
+			{
 			}
 		}
 
@@ -1076,6 +1393,8 @@ namespace Mailr
 			bool isBodyHtml
 		)
 		{
+			_escaped		= false;
+			AutoEscape		= true;
 			BodyTemplate	= null;
 			UseCache		= true;
 			IsBodyHtml		= isBodyHtml;

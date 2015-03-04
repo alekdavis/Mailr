@@ -76,6 +76,14 @@
             The default value is <c>true</c>.
             </param>
     </member>
+    <member name="P:Mailr.MailTemplate.AutoEscape">
+      <summary>
+            Gets or sets a value indicating whether to automatically
+            escape the special characters that would cause
+            template transformation errors when a template is loaded
+            from a file.
+            </summary>
+    </member>
     <member name="P:Mailr.MailTemplate.BodyTemplate">
       <summary>
             Gets or sets the email body template.
@@ -91,6 +99,27 @@
             Gets or sets the default culture that would be used as a fallback
             in case the requested template localization is not provided.
             </summary>
+    </member>
+    <member name="M:Mailr.MailTemplate.Escape">
+      <summary>
+            Escapes the <c>@</c> signs in the words identified in the 
+            custom HTML <c>meta</c> tag.
+            </summary>
+    </member>
+    <member name="M:Mailr.MailTemplate.Escape(System.String,System.Boolean)">
+      <summary>
+            Escapes the <c>@</c> signs in the words identified in the 
+            custom HTML <c>meta</c> tag.
+            </summary>
+      <param name="keywords">
+            The list of comma-separated words that must be escaped,
+            such as <c>"media,font-face"</c>.
+            Notice that the words must not include the <c>@</c> sign.
+            </param>
+      <param name="ignoreCase">
+            Indicates whether word search must be case-sensitive.
+            By default, the search is case-insensitive.
+            </param>
     </member>
     <member name="P:Mailr.MailTemplate.FileExtension">
       <summary>
@@ -145,6 +174,12 @@
             If this parameter is not specified or is set to <c>null</c>,
             the <see cref="P:Mailr.MailTemplate.DefaultCulture" /> property will be used.
             </param>
+    </member>
+    <member name="M:Mailr.MailTemplate.Transform">
+      <summary>
+            Prepares email message for delivery when no data transformations
+            need to be performed.
+            </summary>
     </member>
     <member name="M:Mailr.MailTemplate.Transform(System.Collections.Generic.Dictionary{System.String,System.Object})">
       <summary>

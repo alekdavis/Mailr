@@ -196,6 +196,24 @@ internal class Program
 		if (String.IsNullOrEmpty(options.MailToAddress))
 			options.MailToAddress = options.MailFromAddress;
 
+		// Check required parameters.
+		if (String.IsNullOrEmpty(options.TemplateFilePath) &&
+			String.IsNullOrEmpty(options.TemplateName))
+		{
+			// At the very least, either full path or name of the
+			// template file must be specified.
+			string errMsgFormat = "   * Missing required option \"{0}\".";
+			
+			Console.WriteLine("Errors:");
+
+			if (String.IsNullOrEmpty(options.TemplateFilePath))
+				Console.WriteLine(String.Format(errMsgFormat, "file"));
+			else if (String.IsNullOrEmpty(options.TemplateName))
+				Console.WriteLine(String.Format(errMsgFormat, "name"));
+
+			return false;
+		}
+
 		// Continue with the program.
 		return true;
 	}
@@ -293,7 +311,9 @@ internal class Program
 		// If we have data, perform substitutions in the template.
 		try
 		{
-			if (data != null)
+			if (data == null)
+				msg.Transform();
+			else
 				msg.Transform(data);
 		}
 		catch(Exception ex)

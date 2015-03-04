@@ -48,7 +48,7 @@
         <HelpKeyword index="K" term="encoding" />
       </HelpKeywords>
     </Topic>
-    <Topic id="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" visible="True" isSelected="true" title="Walkthrough">
+    <Topic id="dcd4a622-3d41-4cc4-b8de-0822b78d49fc" visible="True" title="Walkthrough">
       <HelpKeywords>
         <HelpKeyword index="K" term="walkthrough" />
         <HelpKeyword index="K" term="example" />
@@ -56,7 +56,7 @@
       </HelpKeywords>
     </Topic>
   </Topic>
-  <Topic id="549876bc-c8dc-49e1-ad41-7b6fef060243" visible="True" isExpanded="true" title="Version history">
+  <Topic id="549876bc-c8dc-49e1-ad41-7b6fef060243" visible="True" isSelected="true" title="Version history">
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
       <HelpKeyword index="K" term="release notes" />
@@ -66,6 +66,7 @@
         <HelpKeyword index="K" term="version, 1.0.0.0" />
       </HelpKeywords>
     </Topic>
+    <Topic id="c03fa749-d2e1-4dcf-a96d-0726076235c2" visible="True" title="Version 1.1.0.0" />
   </Topic>
   <Topic id="fcbd5503-9bc9-441b-a12d-c2b501cd3db3" visible="True" isExpanded="true" apiParentMode="InsertBefore" title="Code samples">
     <HelpKeywords>

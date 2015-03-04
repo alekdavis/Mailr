@@ -192,6 +192,10 @@
 									<codeInline>@media</codeInline> element.
 									If your template contains <codeInline>@media</codeInline> elements,
 									replace them with <codeInline>@@media</codeInline>.
+									Alternatively, you can leave <codeInline>@</codeInline> character
+									handling to <token>PRODUCTNAMELIB</token> as described in the 
+									<codeEntityReference>M:Mailr.MailTemplate.Escape</codeEntityReference>
+									method documentation.
 								</para>
 							</listItem>
 							<listItem>

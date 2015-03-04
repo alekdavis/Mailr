@@ -2,7 +2,8 @@
 <topic id="1b006b2b-3833-4c57-9b67-8128b9765b74" revisionNumber="1">
 	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<introduction>
-			<para>Version 1.0.0.0 was released on January 28, 2015.
+			<para>
+				Version 1.0.0.0 was released on January 28, 2015.
 			</para>
 		</introduction>
 
@@ -14,7 +15,6 @@
 					<listItem>
 						<para>Original release.</para>
 					</listItem>
-
 				</list>
 
 			</content>

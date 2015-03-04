@@ -195,6 +195,7 @@
     <None Include="Content\Samples\Templates\DesignVersion.aml" />
     <None Include="Content\Samples\Templates\Templates.aml" />
     <None Include="Content\VersionHistory\v1.0.0.0.aml" />
+    <None Include="Content\VersionHistory\v1.1.0.0.aml" />
     <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Introduction.aml" />
   </ItemGroup>
