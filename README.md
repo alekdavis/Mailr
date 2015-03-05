@@ -25,12 +25,12 @@ To build this solution you need:
 - Visual Studio 2013 (any edition)
 - [Sandcastle Help File Builder](http://ewsoftware.github.io/SHFB/html/8c0c97d0-c968-4c15-9fe9-e8f3a443c50a.htm)
 
-When installing Sandcastle Help File Builder, make sure you select appropriate Visual Studio integration options. The documentation project in the solution is built using Sandcastle v2015.1.12.0; if you run into any problem when attempting to build the project using a later version of Sandcastle, please [submit an issue](../master/issues).
+When installing Sandcastle Help File Builder, make sure you select appropriate Visual Studio integration options. The documentation project in the solution is built using Sandcastle v2015.1.12.0; if you run into any problem when attempting to build the project using a later version of Sandcastle, please [submit an issue](./issues).
 
 ## Can I just download the binaries?
 You can download the command-line tool, the help file, and the library assembly from:
 
-- [Mailr.NET Latest Release Downloads](../master/releases)
+- [Mailr.NET Latest Release Downloads](./releases)
 
 Be aware that the class library (Mailr.dll) has run-time dependencies on external DLLs described below. And don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't you may not be able to see the contents).
 
