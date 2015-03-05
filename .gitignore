@@ -8,14 +8,15 @@
 
 # Build results
 [Dd]ebug/
-[Bbin]/[Rr]elease/*
+[Rr]elease/
+#[Bbin]/[Rr]elease/*
 x64/
 build/
 [Oo]bj/
 
 # Exceptions: Include Release binaries
-![Bb]in/[Rr]elease/Mailr.dll
-![Bb]in/[Rr]elease/MailrCmd.exe
+#![Bb]in/[Rr]elease/Mailr.dll
+#![Bb]in/[Rr]elease/MailrCmd.exe
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
@@ -49,10 +50,13 @@ build/
 *.scc
 
 # Help files
+[Hh]elp/
 *.chw
+*.chm
 
 #VSHOST files
 *.vshost.exe
+*.vshost.exe.config
 
 # Visual C++ cache files
 ipch/
