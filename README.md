@@ -19,12 +19,32 @@ The solution includes three projects:
 - MailrExe: implements a command-line tool for testing email templates
 - MailrDoc: implements a [Sandcastle](https://github.com/EWSoftware/SHFB) documentation project that builds the user's guide
 
-## Can I just download the binaries?
-Of course, you can. Download individual components:
+## How to build this solution?
+To build this solution you need:
 
-- [Mailr.NET Class Library](../master/MailrLib/bin/Release/Mailr.dll?raw=true)
-- [Mailr.NET Client Tool](../master/MailrExe/bin/Release/MailrCmd.exe?raw=true)
-- [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true) (don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading)
+- Visual Studio 2013 (any edition)
+- [Sandcastle Help File Builder](http://ewsoftware.github.io/SHFB/html/8c0c97d0-c968-4c15-9fe9-e8f3a443c50a.htm)
+
+When installing Sandcastle Help File Builder, make sure you select appropriate Visual Studio integration options. The documentation project in the solution is built using Sandcastle v2015.1.12.0; if you run into any problem when attempting to build the project using a later version of Sandcastle, please [submit an issue](../master/issues).
+
+## Can I just download the binaries?
+You can download the command-line tool, the help file, and the library assembly from:
+
+- [Mailr.NET Latest Release Downloads](../master/releases)
+
+Be aware that the class library (Mailr.dll) has run-time dependencies on external DLLs described below. And don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't you may not be able to see the contents).
+
+## What are the run-time dependencies?
+The Mailr.NET class library depends on the components installed by the following NuGet packages (if you use the [Mailr.NET Class Library](http://www.nuget.org/packages/mailr/) package, the following dependencies will be added to the project automatically):
+
+- [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
+- [Microsoft ASP.NET Razor](https://www.nuget.org/packages/Microsoft.AspNet.Razor)
+- [RazorEngine](https://www.nuget.org/packages/RazorEngine/)
+
+Additional dependencies for building the Mailr.NET projects are described in the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+
+## Which version of the .NET Framework is required?
+Mailr.NET requires .NET Framework 4.5 or later.
 
 ## How to use the Mailr.NET API?
 To use Mailr.NET class library (`Mailr.dll`) in your application, add the following package to the project:
@@ -79,16 +99,4 @@ smtp.Send(msg);
 For more detailed examples, see [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
 
 ## How to use the Mailr.NET client tool to test email templates?
-The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information (for more information check the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true)). 
-
-## Which version of the .NET Framework is required?
-Mailr.NET requires .NET Framework 4.5 or later.
-
-## What are the run-time dependencies?
-The Mailr.NET class library depends on the components installed by the following NuGet packages (if you use the [Mailr.NET Class Library](http://www.nuget.org/packages/mailr/) package, the following dependencies will be added to the project automatically):
-
-- [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
-- [Microsoft ASP.NET Razor](https://www.nuget.org/packages/Microsoft.AspNet.Razor)
-- [RazorEngine](https://www.nuget.org/packages/RazorEngine/)
-
-Additional dependencies for building the Mailr.NET projects are described in the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information (for more information check the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true)).
