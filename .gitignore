@@ -25,6 +25,7 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+# Visual Studio build files
 *_i.c
 *_p.c
 *.ilk
@@ -54,7 +55,7 @@ build/
 *.chw
 *.chm
 
-#VSHOST files
+# VSHOST files
 *.vshost.exe
 *.vshost.exe.config
 
