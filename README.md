@@ -2,7 +2,7 @@
 Mailr.NET offers a very simple .NET API and a command-line tool for building, sending, and testing email messages generated from localized template files or text strings.
 
 ## Why use Mailr.NET?
-While you may find many alternative solutions that will allow you to generate emial messages from localized templates, you may want to consider Mailr.NET for a number of reasons:
+While you can find many alternative solutions that will allow you to generate emial messages from localized templates, you may want to consider Mailr.NET for a number of reasons:
 
 - The Mailr.NET API it is simple and familiar. It is based on and supports all features of the .NET Framework's [MailMessage](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage(v=vs.110).aspx) class. The API just adds a couple of methods for loading and transforming templates into the mail message body.
 
