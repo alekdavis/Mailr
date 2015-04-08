@@ -41,7 +41,7 @@ The Mailr.NET class library depends on the components installed by the following
 - [Microsoft ASP.NET Razor](https://www.nuget.org/packages/Microsoft.AspNet.Razor)
 - [RazorEngine](https://www.nuget.org/packages/RazorEngine/)
 
-Additional dependencies for building the Mailr.NET projects are described in the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+Additional dependencies for building the Mailr.NET projects are described in Mailr.NET User's Guide.&#42;
 
 ## Which version of the .NET Framework is required?
 Mailr.NET requires .NET Framework 4.5 or later.
@@ -96,7 +96,7 @@ msg.Transform(new { Name = "Jose", });
 SmtpClient smtp = new SmtpClient(server);
 smtp.Send(msg);
 ```
-For more detailed examples, see [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+For more detailed examples, see Mailr.NET User's Guide.&#42;
 
 ## How to use the Mailr.NET client tool to test email templates?
 The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information. Here are some examples:
@@ -109,4 +109,8 @@ MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com 
 MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com /dir:. /name:Hello /culture:es /ext:.htm /data:Hello.txt
 ```
 
-For more information check the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+For more information check Mailr.NET User's Guide.&#42;
+
+---
+
+&#42; Download the latest Mailr.NET User's Guide (CHM file) from the [Downloads page](../../releases).
