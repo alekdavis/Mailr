@@ -28,11 +28,11 @@ To build this solution you need:
 When installing Sandcastle Help File Builder, select the appropriate Visual Studio integration options. The documentation project in the solution is built using Sandcastle v2015.1.12.0; if you run into any problem when attempting to build the project using a later version of Sandcastle, please [submit an issue](../../issues).
 
 ## Can I just download the binaries?
-You can download the command-line tool, the help file, and the library assembly from:
+You can download the command-line tool, the help file&#42;, and the library assembly from:
 
 - [Mailr.NET Latest Release Downloads](../../releases)
 
-Be aware that the class library (Mailr.dll) has run-time dependencies on external DLLs described below. And don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't you may not be able to see the contents).
+Be aware that the class library (Mailr.dll) has run-time dependencies on external DLLs described [below](#what-are-the-run-time-dependencies).
 
 ## What are the run-time dependencies?
 The Mailr.NET class library depends on the components installed by the following NuGet packages (if you use the [Mailr.NET Class Library](http://www.nuget.org/packages/mailr/) package, the following dependencies will be added to the project automatically):
@@ -113,4 +113,4 @@ For more information check Mailr.NET User's Guide.&#42;
 
 ---
 
-&#42; Download the latest Mailr.NET User's Guide (CHM file) from the [Downloads page](../../releases).
+&#42; Download the latest Mailr.NET User's Guide (CHM file) from the [Downloads page](../../releases). You may need to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't unblock the file, you may not be able to see the contents).
