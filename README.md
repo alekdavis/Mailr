@@ -2,9 +2,9 @@
 Mailr.NET offers a very simple .NET API and a command-line tool for building, sending, and testing email messages generated from localized template files or text strings.
 
 ## Why use Mailr.NET?
-While you may find many alternative solutions that will allow you to generate emial messages from localized templates, you may want to consider Mailr.NET for a number of reasons:
+While you can find many alternative solutions that will allow you to generate email messages from localized templates, you may want to consider Mailr.NET for a number of reasons:
 
-- The Mailr.NET API it is simple and familiar. It is based on and supports all features of the .NET Framework's [MailMessage](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage(v=vs.110).aspx) class. The API just adds a couple of methods for loading and transforming templates into the mail message body.
+- The Mailr.NET API is simple and familiar. It is based on and supports all features of the .NET Framework's [MailMessage](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage(v=vs.110).aspx) class. The API just adds a couple of methods for loading and transforming templates into the mail message body.
 
 - The templating syntax utilized by Mailr.NET relies on the popular and capable [Razor Engine](https://github.com/Antaris/RazorEngine/wiki/1.-About-Razor-and-its-syntax).
 
@@ -25,14 +25,14 @@ To build this solution you need:
 - Visual Studio 2013 (any edition)
 - [Sandcastle Help File Builder](http://ewsoftware.github.io/SHFB/html/8c0c97d0-c968-4c15-9fe9-e8f3a443c50a.htm)
 
-When installing Sandcastle Help File Builder, make sure you select appropriate Visual Studio integration options. The documentation project in the solution is built using Sandcastle v2015.1.12.0; if you run into any problem when attempting to build the project using a later version of Sandcastle, please [submit an issue](../../issues).
+When installing Sandcastle Help File Builder, select the appropriate Visual Studio integration options. The documentation project in the solution is built using Sandcastle v2015.1.12.0; if you run into any problem when attempting to build the project using a later version of Sandcastle, please [submit an issue](../../issues).
 
 ## Can I just download the binaries?
-You can download the command-line tool, the help file, and the library assembly from:
+You can download the command-line tool, the help file&#42;, and the library assembly from:
 
 - [Mailr.NET Latest Release Downloads](../../releases)
 
-Be aware that the class library (Mailr.dll) has run-time dependencies on external DLLs described below. And don't forget to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't you may not be able to see the contents).
+Be aware that the class library (Mailr.dll) has run-time dependencies on external DLLs described [below](#what-are-the-run-time-dependencies).
 
 ## What are the run-time dependencies?
 The Mailr.NET class library depends on the components installed by the following NuGet packages (if you use the [Mailr.NET Class Library](http://www.nuget.org/packages/mailr/) package, the following dependencies will be added to the project automatically):
@@ -41,17 +41,17 @@ The Mailr.NET class library depends on the components installed by the following
 - [Microsoft ASP.NET Razor](https://www.nuget.org/packages/Microsoft.AspNet.Razor)
 - [RazorEngine](https://www.nuget.org/packages/RazorEngine/)
 
-Additional dependencies for building the Mailr.NET projects are described in the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+Additional dependencies for building the Mailr.NET projects are described in Mailr.NET User's Guide.&#42;
 
 ## Which version of the .NET Framework is required?
 Mailr.NET requires .NET Framework 4.5 or later.
 
 ## How to use the Mailr.NET API?
-To use Mailr.NET class library (`Mailr.dll`) in your application, add the following package to the project:
+To use the Mailr.NET class library (`Mailr.dll`) in your application, add the following package to the project:
 
 - [Mailr.NET Class Library NuGet Package](http://www.nuget.org/packages/mailr/)
 
-Here is the abbreviated C# code to load a localized template from a file, transform it, and send the generated email message to he specified recipient:
+Here is the abbreviated C# code to load a localized template from a file, transform it, and send the generated email message to the specified recipient:
 
 ```c#
 // Reference Mailr namespace.
@@ -96,7 +96,21 @@ msg.Transform(new { Name = "Jose", });
 SmtpClient smtp = new SmtpClient(server);
 smtp.Send(msg);
 ```
-For more detailed examples, see [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true).
+For more detailed examples, see Mailr.NET User's Guide.&#42;
 
 ## How to use the Mailr.NET client tool to test email templates?
-The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information (for more information check the [Mailr.NET User's Guide](../master/MailrDoc/Help/Mailr.chm?raw=true)).
+The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information. Here are some examples:
+
+```
+MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com /file:Hello-es.htm /data:Hello-es.txt
+```
+
+```
+MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com /dir:. /name:Hello /culture:es /ext:.htm /data:Hello.txt
+```
+
+For more information check Mailr.NET User's Guide.&#42;
+
+---
+
+&#42; Download the latest Mailr.NET User's Guide (CHM file) from the [Downloads page](../../releases). You may need to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't unblock the file, you may not be able to see the contents).
