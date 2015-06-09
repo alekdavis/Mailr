@@ -3,14 +3,17 @@
 # Set up the NuGet API key (do only once)
 nuget.exe setapikey API-KEY-GUID
 
+# Switch to the proper folder
+cd D:\Projects\GitHub\Mailr\MailrLib
+
 # Build NuGet package for project in current directory
 nuget.exe pack MailrLib.csproj -Prop Configuration=Release
 
 # Build NuGet package with symbols
 nuget.exe pack -sym MailrLib.csproj -Prop Configuration=Release
 
-# Push NuGet package and symbols to repository
-nuget push Mailr.1.0.0.0.nupkg
+# Push NuGet package and symbols to repository (use .nupkg file created in previous step)
+nuget push Mailr.X.X.X.X.nupkg
 
 # RESOURCES
 http://blog.davidebbo.com/2011/04/easy-way-to-publish-nuget-packages-with.html

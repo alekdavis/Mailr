@@ -1277,8 +1277,8 @@ namespace Mailr
 
 				if (!File.Exists(path))
 				{
-					paths	= path + String.Format("[{0}]", path);
-					path	= null;
+					paths	+= String.Format("[{0}]", path);
+					path	 = null;
 				}
 			}
 
@@ -1293,8 +1293,8 @@ namespace Mailr
 
 				if (!File.Exists(path))
 				{
-					paths	= path + String.Format("[{0}]", path);
-					path	= null;
+					paths	+= String.Format("[{0}]", path);
+					path	 = null;
 				}
 			}
 
@@ -1309,8 +1309,8 @@ namespace Mailr
 				{
 					if (!File.Exists(path))
 					{
-						paths	= path + String.Format("[{0}]", path);
-						path	= null;
+						paths	+= String.Format("[{0}]", path);
+						path	 = null;
 					}
 				}
 			}

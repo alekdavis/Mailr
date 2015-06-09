@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Original release.</releaseNotes>
+    <releaseNotes>Properly accumulate the list of probed paths displayed in error messages.</releaseNotes>
 		<projectUrl>https://github.com/alekdavis/Mailr</projectUrl>
     <copyright>Copyright (C) 2015 Alek Davis</copyright>
     <tags>html email template razor engine i18n library API transformations</tags>
