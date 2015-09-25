@@ -238,8 +238,29 @@ internal class Program
 		// Read all text from the file into a string array.
 		string[] lines = File.ReadAllLines(dataFilePath);
 
+		Dictionary<string, string> data = new Dictionary<string,string>();
+
+		foreach(string line in lines)
+		{
+			if (!String.IsNullOrWhiteSpace(line))
+			{
+				int index = line.IndexOf("=");
+
+				if (index > 0)
+				{
+					string name = line.Substring(0, index);
+
+					string value = index < line.Length - 1 ? 
+						line.Substring(index + 1, line.Length - (index + 1)) : "";
+
+					data[name] = value;
+				}
+			}
+		}
+
+		// THIS IS SMART BUT IT DOES NOT ALLOW EQUAL SIGNS IN VALUES:
 		// Convert string array into a string to string dictionary.
-		var data = lines.Select(l => l.Split('=')).ToDictionary(a => a[0], a => a[1]);
+		// var data = lines.Select(l => l.Split('=')).ToDictionary(a => a[0], a => a[1]);
 
 		return data;
 	}
