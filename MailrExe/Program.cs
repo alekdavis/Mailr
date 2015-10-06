@@ -96,7 +96,7 @@ internal class Program
 			return;
 
 		// This object will hold data used for template transformations.
-		Dictionary<string, string> data = null;
+		Dictionary<string, object> data = null;
 		
 		try
 		{
@@ -230,7 +230,7 @@ internal class Program
 	/// Dictionary object holding string substitutions that will be used
 	/// for template transformation.
 	/// </returns>
-	private static Dictionary<string,string> GetData
+	private static Dictionary<string, object> GetData
 	(
 		string dataFilePath
 	)
@@ -238,7 +238,7 @@ internal class Program
 		// Read all text from the file into a string array.
 		string[] lines = File.ReadAllLines(dataFilePath);
 
-		Dictionary<string, string> data = new Dictionary<string,string>();
+		Dictionary<string, object> data = new Dictionary<string, object>();
 
 		foreach(string line in lines)
 		{
@@ -253,14 +253,31 @@ internal class Program
 					string value = index < line.Length - 1 ? 
 						line.Substring(index + 1, line.Length - (index + 1)) : "";
 
-					data[name] = value;
+					// If we already have an entry with the same name, check its type.
+					// If it's a string, convert it into a string list.
+					// If it's already a list, append the new value to it.
+					if (data.ContainsKey(name))
+					{
+						if (data[name] == null || data[name] is string)
+						{
+							string oldValue = data[name] == null ? null : data[name].ToString();
+
+							data[name] = null;
+
+							data[name] = new List<string>(){ oldValue, value };
+						}
+						else
+						{
+							((List<string>)data[name]).Add(value);
+						}
+					}
+					else
+					{
+						data[name] = value;
+					}
 				}
 			}
 		}
-
-		// THIS IS SMART BUT IT DOES NOT ALLOW EQUAL SIGNS IN VALUES:
-		// Convert string array into a string to string dictionary.
-		// var data = lines.Select(l => l.Split('=')).ToDictionary(a => a[0], a => a[1]);
 
 		return data;
 	}
@@ -282,7 +299,7 @@ internal class Program
 	private static MailMessage ProcessTemplate
 	(
 		Options options,
-		Dictionary<string, string> data
+		Dictionary<string, object> data
 	)
 	{
 		// The Mailr class used for template transformations.
@@ -302,8 +319,7 @@ internal class Program
 		// or use the template parts to generate the file name 
 		// on the fly.
 		try
-		{
-			
+		{			
 			if (String.IsNullOrEmpty(options.TemplateFilePath))
 				msg.Load
 				(
