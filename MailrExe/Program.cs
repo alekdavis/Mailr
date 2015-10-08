@@ -451,8 +451,6 @@ internal class Program
 		Exception ex
 	)
 	{
-		Console.WriteLine(ex.Message);
-
 		while (ex != null)
 		{
 			Console.WriteLine(ex.Message);
