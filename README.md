@@ -111,6 +111,9 @@ MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com 
 
 For more information check Mailr.NET User's Guide.&#42;
 
+## See also
+
+[XslMail](https://github.com/alekdavis/XslMail)
 ---
 
 &#42; Download the latest Mailr.NET User's Guide (CHM file) from the [Downloads page](../../releases). You may need to [unblock the CHM file](http://www.jeff.wilcox.name/2008/11/unblock-chms/) after downloading it (if you don't unblock the file, you may not be able to see the contents).
