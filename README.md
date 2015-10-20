@@ -51,7 +51,7 @@ To use the Mailr.NET class library (`Mailr.dll`) in your application, add the fo
 
 - [Mailr.NET Class Library NuGet Package](http://www.nuget.org/packages/mailr/)
 
-Here is the abbreviated C# code to load a localized template from a file, transform it, and send the generated email message to the specified recipient:
+Here is the abbreviated C# code to load a localized template from a file, transform it, and send the generated email message to the specified recipient (see [template examples](../../tree/master/MailrExe/Email/Templates)):
 
 ```c#
 // Reference Mailr namespace.
