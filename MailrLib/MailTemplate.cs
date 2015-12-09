@@ -360,6 +360,28 @@ namespace Mailr
 				return _templateFilePath;
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the flag indicating whether the email subject
+		/// retrieved from the HTML email template
+		/// should be normalized (i.e. have all new lines, tabs, and
+		/// multiple space characters converted to single space characters).
+		/// </summary>
+		/// <value>
+		/// The value containing email subject normalization flag.
+		/// </value>
+		/// <remarks>
+		/// <para>
+		/// When not explicitly set, the default flag is set to <c>true</c>.
+		/// </para>
+		/// <para>
+		/// This setting only affects subjects retrieved from the title tag
+		/// of the HTML template file. If the email subject is assigned
+		/// explicitly, normalization will not be performed regardless of
+		/// this setting.
+		/// </para>
+		/// </remarks>
+		public bool NormalizeSubject { get; set; }
 		#endregion
 
 		#region Constructors
@@ -1180,7 +1202,16 @@ namespace Mailr
 
 				if (node != null)
 				{
-					Subject = node.InnerText;
+					string title = node.InnerText;
+
+					// Convert new lines, tabs, and multiple white spaces to
+					// single space characters. New lines are particularly
+					// nasty: a subject text containing a new line will not be
+					// displayed by most email clients.
+					if (!String.IsNullOrEmpty(title) && NormalizeSubject)
+						title = Regex.Replace(title, @"\s+", " ");
+
+					Subject = title;
 				}
 			}
 			catch
@@ -1396,6 +1427,7 @@ namespace Mailr
 			_escaped		= false;
 			AutoEscape		= true;
 			BodyTemplate	= null;
+			NormalizeSubject= true;
 			UseCache		= true;
 			IsBodyHtml		= isBodyHtml;
 			CacheItemPolicy = new CacheItemPolicy();
