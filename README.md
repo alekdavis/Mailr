@@ -98,8 +98,8 @@ smtp.Send(msg);
 ```
 For more detailed examples, see Mailr.NET User's Guide.&#42;
 
-## How to use the Mailr.NET client tool to test email templates?
-The Mailr.NET client tool (`MailrCmd.exe`) is a stand-alone command-line program (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information. Here are some examples:
+## How to use the Mailr.NET command-line tool to test email templates?
+The Mailr.NET command-line tool (`MailrCmd.exe`) is a stand-alone console application (all dependencies are embedded in the primary assembly). Just run it from a command-line prompt with the `'/?'` switch to see usage information. Here are some examples:
 
 ```
 MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com /file:Hello-es.htm /data:Hello-es.txt
@@ -110,6 +110,10 @@ MailrCmd /s:smtp.contoso.com /from:sender@contoso.com /to:recipient@contoso.com 
 ```
 
 For more information check Mailr.NET User's Guide.&#42;
+
+## Limitations
+
+The Mailr.NET command-line tool does not support email attachments.
 
 ## See also
 [XslMail](https://github.com/alekdavis/XslMail)
