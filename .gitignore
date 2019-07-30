@@ -13,6 +13,7 @@
 x64/
 build/
 [Oo]bj/
+.vs/
 
 # Exceptions: Include Release binaries
 #![Bb]in/[Rr]elease/Mailr.dll

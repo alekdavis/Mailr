@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Net.Mail;
-using System.Xml;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Dynamic;
 using System.Runtime.Caching;
-using System.Text;
 using System.Text.RegularExpressions;
 
 using RazorEngine;
@@ -128,7 +126,7 @@ namespace Mailr
 		private string	_bodyTemplate				= null;
 		private bool	_escaped					= false;
 
-		private	static MemoryCache _cache		= MemoryCache.Default;
+		// private	static MemoryCache _cache		= MemoryCache.Default;
 
 		#endregion
 
@@ -163,18 +161,19 @@ namespace Mailr
 		/// <remarks>
 		/// <para>
 		/// When a caller invokes a
-		/// <see cref="O:Mailr.MailTemplate.Load">LoadTemplate</see>
+		/// <see cref="O:Mailr.MailTemplate.Load">Load</see>
 		/// method, it may need to access the file system multiple time.
 		/// For example, the template for the specified culture may not exist,
 		/// so the code will attempt to read the template from an alternative file
-		/// using a fallback algorithm (see TBD).
+		/// using a fallback algorithm.
 		/// Caching allows the application to avoid multiple file read attempts on 
 		/// subsequent calls.
 		/// </para>
 		/// <para>
 		/// With caching enabled, the original template will be saved in memory,
 		/// so each subsequent request for the same template and culture combination
-		/// would not require file system access.
+		/// would not require file system access unless the application is restarted
+        /// or the email template file is modified.
 		/// </para>
 		/// <para>
 		/// By default, caching is enabled.
@@ -225,8 +224,9 @@ namespace Mailr
 		/// The cache item policy.
 		/// </value>
 		/// <remarks>
-		/// For a typical application, the default cache item policy should suffice.
+		/// This property is no longer used.
 		/// </remarks>
+        [Obsolete]
 		public CacheItemPolicy CacheItemPolicy { get; set; }
 
 		/// <summary>
@@ -417,8 +417,9 @@ namespace Mailr
 			MailAddress from, 
 			MailAddress to,
 			bool		isBodyHtml = true
-		) : 
-			base(from, to) 
+		) 
+        : 
+	    base(from, to) 
 		{
 			Initialize(isBodyHtml);
 		}
@@ -438,8 +439,9 @@ namespace Mailr
 			string	from, 
 			string	to,
 			bool	isBodyHtml = true
-		) : 
-			base(from, to) 
+		)
+        : 
+	    base(from, to) 
 		{
 			Initialize(isBodyHtml);
 		}
@@ -460,8 +462,9 @@ namespace Mailr
 			string	subject, 
 			string	body,
 			bool	isBodyHtml = true
-		) : 
-			base(from, to, subject, body)
+		)
+        : 
+	    base(from, to, subject, body)
 		{
 			Initialize(isBodyHtml);
 		}
@@ -652,10 +655,11 @@ namespace Mailr
 			_escaped		= false;
 
 			string cachedItemTemplateName = GetCachedTemplateName(templateFilePath);
+            ObjectCache cache = MemoryCache.Default;
 
-			if (UseCache)
+            if (UseCache)
 			{
-				_bodyTemplate = _cache.Get(cachedItemTemplateName) as string;
+				_bodyTemplate = cache.Get(cachedItemTemplateName) as string;
 			}
 
 			if (_bodyTemplate == null)
@@ -675,9 +679,13 @@ namespace Mailr
 
 				if (UseCache)
 				{
-					if (!_cache.Contains(cachedItemTemplateName))
+                    CacheItemPolicy policy = new CacheItemPolicy();
+                    List<string> filePaths = new List<string>() { templateFilePath };
+                    policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
+
+                    if (!cache.Contains(cachedItemTemplateName))
 					{
-						_cache.Set(cachedItemTemplateName, _bodyTemplate, CacheItemPolicy);
+						cache.Set(cachedItemTemplateName, _bodyTemplate, policy);
 					}
 				}
 			}
@@ -1232,7 +1240,9 @@ namespace Mailr
 		/// or
 		/// Missing parameter: templateName.
 		/// </exception>
-		/// <exception cref="System.IO.FileNotFoundException">Could not find the specified template file. Probed locations:  + paths</exception>
+		/// <exception cref="System.IO.FileNotFoundException">
+        /// Could not find the specified template file. Probed locations:  + paths
+        /// </exception>
 		private string GetTemplatePath
 		(
 			string templateFolderPath,
@@ -1254,9 +1264,11 @@ namespace Mailr
 										templateExtension, 
 										culture);
 
-			if (UseCache)
+            ObjectCache cache = MemoryCache.Default;
+
+            if (UseCache)
 			{
-				path = _cache.Get(cachedItemName) as string;
+				path = cache.Get(cachedItemName) as string;
 
 				if (!String.IsNullOrEmpty(path))
 					return path;
@@ -1352,8 +1364,8 @@ namespace Mailr
 
 			if (UseCache)
 			{
-				if (!_cache.Contains(cachedItemName))
-					_cache.Set(cachedItemName, path, CacheItemPolicy);
+				if (!cache.Contains(cachedItemName))
+					cache.Set(cachedItemName, path, new CacheItemPolicy());
 			}
 
 			return path;
@@ -1430,7 +1442,7 @@ namespace Mailr
 			NormalizeSubject= true;
 			UseCache		= true;
 			IsBodyHtml		= isBodyHtml;
-			CacheItemPolicy = new CacheItemPolicy();
+			//CacheItemPolicy = new CacheItemPolicy();
 		}
 		#pragma warning restore 1573
 		#endregion
